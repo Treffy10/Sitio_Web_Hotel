@@ -9,6 +9,7 @@
 <div class='bedroomsList'>
     <% @bedrooms.each do |bedroom| %>
         <div class='bedroomContainer'>
+            <%= image_tag bedroom.image, class: "imagenBedroom" %>
             <span><%= bedroom.beds %></span>
             <%= link_to bedroom_path(bedroom.id), class: 'bedroom' do %>
                 <h2><%= bedroom.title %></h2>

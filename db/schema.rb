@@ -27,6 +27,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_19_170151) do
   create_table "bedrooms", force: :cascade do |t|
     t.string "numberBedroom"
     t.boolean "avaibility"
+    t.integer "floorLocation"
+    t.integer "categoryBedroom"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,6 +39,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_19_170151) do
     t.float "priceNight"
     t.integer "maxPersons"
     t.string "beds"
+    t.text "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
