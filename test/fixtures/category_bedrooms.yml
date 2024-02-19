@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+Matrimonial:
+  title: Matrimonial Special
+  description: Disfruta de blablabla
+  priceNight: 300.0
+  maxPersons: 6
+  beds: 2 camas
+
+Soledad:
+  title: Soledad
+  description: What's, danger?
+  priceNight: 250.0
+  maxPersons: 1
+  beds: 4 camas

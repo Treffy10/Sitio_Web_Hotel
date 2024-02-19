@@ -1,0 +1,10 @@
+
+h1 span{
+    font-size: 54px;
+}
+
+.bedroomContainer{
+    display: inline-block;
+    border: 1px solid black;
+    margin: 165px auto;     
+}

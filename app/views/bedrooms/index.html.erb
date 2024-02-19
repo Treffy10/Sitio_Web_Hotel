@@ -1,0 +1,19 @@
+<% content_for :title, "Habitaciones - Rubies" %>
+<%= stylesheet_link_tag "bedrooms/index" %>
+
+<h1 class='title'>
+    <span>Elige tu Habitacion</span>
+</h1>
+<sub>Disfruta de una experiencia agradable y acogedora en el confort y la comodidad de nuestras habitaciones.</sub>
+
+<div class='bedroomsList'>
+    <% @bedrooms.each do |bedroom| %>
+        <div class='bedroomContainer'>
+            <span><%= bedroom.beds %></span>
+            <%= link_to bedroom_path(bedroom.id), class: 'bedroom' do %>
+                <h2><%= bedroom.title %></h2>
+                <span>S/ <%= bedroom.priceNight %></span>
+            <% end %>
+        </div>
+    <% end %>
+</div>

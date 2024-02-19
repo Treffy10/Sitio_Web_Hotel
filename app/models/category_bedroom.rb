@@ -1,0 +1,2 @@
+class CategoryBedroom < ApplicationRecord
+end
