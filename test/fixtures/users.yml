@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  receptionistID: 1
+  adminID: 1
+  username: MyString
+  password: MyString
+  creationDate: 2024-02-19
+
+two:
+  receptionistID: 1
+  adminID: 1
+  username: MyString
+  password: MyString
+  creationDate: 2024-02-19
