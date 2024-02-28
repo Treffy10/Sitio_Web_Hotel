@@ -12,3 +12,51 @@ h1 span{
 .imagenBedroom{
     padding: auto;
 }
+.mainSpan{
+    margin: 100px auto;
+}
+
+.titleMain span{
+    font-size: 57px;
+}
+.bedroomsList {
+    margin: 100px auto;
+}   
+
+.bedroomContainer{
+    display: inline-block;
+    border: 1px solid black;    
+    margin: 100px 10px;
+    border-radius: 10px 10px 10px 10px;
+    width: 40%; 
+}
+
+.image {
+    /* Estilos para la imagen del dormitorio */
+    width: 95%; /* Ancho del 100% del contenedor */
+    height: 400px; /* Altura automática para mantener la proporción */
+    border: 1px solid #ccc; /* Borde de la imagen */
+    border-radius: 5px; /* Borde redondeado */
+    margin: 10px 1px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.viewInfo {
+    text-align: left;
+    margin-left: 30px;
+}
+
+.beds {
+    text-align: left;
+}
+  
+.bed_description p {
+    text-align: left; /* Centrar el texto */
+    font-size: 15px; /* Tamaño de fuente */
+    line-height: 1.5; /* Altura de línea para un espaciado adecuado entre líneas */
+    white-space: pre-line; /* Previene que el texto se colapse en una sola línea */
+    margin-bottom: 13px; /* Espacio entre párrafos */
+    width: 100%;
+}

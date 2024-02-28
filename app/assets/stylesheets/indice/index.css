@@ -1,0 +1,100 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  color: #333; /* Color del texto principal */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px; /* Ancho máximo del contenido */
+  margin: 0 auto; /* Centrar el contenido */
+  padding: 20px;
+}
+
+/* Estilos para el encabezado */
+.header {
+  background-color: #ff4081; /* Color de fondo del encabezado */
+  color: red; /* Color del texto del encabezado */
+  padding: 20px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+/* Estilos para la sección de Misión y Visión */
+.mision-vision {
+  margin-top: 20px;
+}
+
+.mision-vision h1 {
+  background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
+  color: red; /* Color del texto de los títulos */
+  padding: 10px; /* Padding reducido */
+  border-radius: 10px; /* Redondeado reducido */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  border: 2px solid yellowgreen; /* Color del borde de los títulos */
+  text-align: center;
+}
+
+.mision-vision h2 {
+  /*background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
+  color: rgb(243, 239, 239); /* Color del texto de los títulos */
+  /*padding: 10px; /* Padding reducido */
+  /*border-radius: 10px; /* Redondeado reducido */
+  /*box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  border: 2px solid yellowgreen; /* Color del borde de los títulos */
+  text-align: center;
+}
+
+.mision-vision p {
+  margin-top: 0;
+}
+
+/* Estilos para la sección de Contacto */
+.contacto {
+  background-color: rgba(255, 255, 255, 0.5); /* Color de fondo de la sección de contacto */
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  border: 2px solid #c7b800; /* Color del borde de la sección de contacto */
+}
+
+.contacto h1 {
+  background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
+  color: red; /* Color del texto del título de contacto */
+  padding: 10px; /* Padding reducido */
+  border-radius: 10px; /* Redondeado reducido */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  border: 2px solid yellowgreen; /* Color del borde del título de contacto */
+  text-align: center;
+}
+
+.contacto ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.contacto li {
+  margin-bottom: 10px;
+}
+
+  /*aqui ira el css para la imagen de fondo*/
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-image: url('fondo3.png');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+}
+
+.content {
+    text-align: center;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.7);
+}

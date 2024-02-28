@@ -5,16 +5,28 @@
     <span>Elige tu Habitacion</span>
 </h1>
 <sub>Disfruta de una experiencia agradable y acogedora en el confort y la comodidad de nuestras habitaciones.</sub>
+<% content_for :title, "Habitaciones - Rubies" %>
+<%= stylesheet_link_tag "bedrooms/index" %>
 
 <div class='bedroomsList'>
     <% @bedrooms.each do |bedroom| %>
         <div class='bedroomContainer'>
-            <%= image_tag bedroom.image, class: "imagenBedroom" %>
-            <span><%= bedroom.beds %></span>
-            <%= link_to bedroom_path(bedroom.id), class: 'bedroom' do %>
-                <h2><%= bedroom.title %></h2>
-                <span>S/ <%= bedroom.priceNight %></span>
-            <% end %>
+            <div class='imageBedroom'>
+                <%= image_tag bedroom.image.url, class: "doble_deluxe.jpg" %> <!-- Mostrar imagen -->
+            </div>
+            <div class='viewInfo'>
+                <div class='bedBedroom'>
+                    <span class='beds'>Camas: <%= bedroom.beds %></span>
+                </div>
+                <div class='titleBedroom'>
+                    <%= link_to bedroom_path(bedroom.id) do %>
+                        <h2><%= bedroom.title %></h2>
+                    <% end %>
+                </div>
+                <div class='bed_description'>
+                    <p><%= bedroom.description %></p>
+                </div>
+            </div>
         </div>
     <% end %>
 </div>
