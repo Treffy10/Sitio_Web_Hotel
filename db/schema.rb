@@ -94,4 +94,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_19_170151) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bedrooms", "category_bedrooms", column: "categoryBedroom"
 end

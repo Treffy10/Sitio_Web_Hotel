@@ -1,0 +1,177 @@
+
+.wrapper_body{
+    display: block;
+}
+
+.container{
+    display: block;
+    margin: 10px 100px;
+    width: 90%;
+}
+
+.encabezadoReserva{
+    border: 1px solid black;
+}
+
+.encabezadoReserva {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .encabezadoReserva h2 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .fecha,
+  .boton_buscar {
+    margin: 0 1rem;
+  }
+  
+  .fecha label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .fecha input[type="date"] {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .boton_buscar input[type="submit"] {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 3px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+  }
+
+.containerReserva{
+    border: 1px solid black;
+    display: inline-block; 
+    vertical-align: top;
+    margin: auto 10px;
+}
+
+.fecha imput{
+    border: 1px solid black;
+}
+
+.boton_buscar{
+    border: 1px solid black;
+}
+
+.bedroomsList{
+    margin: auto 10px;
+    display: inline-block; 
+    vertical-align: top;
+    width: 55%;
+    border: 1px solid black;
+    overflow: hidden;
+    text-align: center; /* Centra horizontalmente el contenido */
+}
+
+.bedroom{
+    display: block;
+    border: 1px solid black; 
+    width: 98%;
+    overflow: hidden; /* Oculta cualquier contenido que se desborde */
+    margin: 10px 5px;
+    padding-bottom: 400px;
+}
+
+.caracteristicas{
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid black;
+    width: 50%;
+    position: absolute;
+    bottom: 0%;
+    top: 0%;
+}
+
+.caracteristicas h2{
+    font-size: 20px;
+    text-align: left;
+}
+
+.caracteristicas p{
+    font-size: 13px;
+    text-align: left;
+}
+
+.titulos{
+    margin: 10px 10px;
+}
+
+.info-bedroom{
+    position: relative;
+    display: block;
+    border: 1px solid black;
+    width: 100%;
+    margin: auto auto;
+    overflow: hidden;
+    padding-bottom: 200px;
+}
+
+.imageBedroom{
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid black;
+    position: absolute;
+    left: 0%; /* Coloca el div 2 en el lado derecho del contenedor padre */
+}
+
+.imageBedroom .image{
+    width: 100%;
+}
+
+
+.tds span{
+    text-decoration: line-through;
+}
+
+.cesta{
+    padding: 10px auto;
+}
+
+.titulo{
+    margin: 10px 10px;
+}
+
+.titulo h1{
+    text-align: left;
+    font-size: 26px;
+}
+
+.eleccion_cantidad{
+    margin: auto auto;
+    border: 1px solid black;
+    width: 100%;
+    display: block;
+}
+
+td{
+    border: 1px solid black
+}
+
+.eleccion_cantidad td{
+    display: inline-block;
+}
+
+.rowspanTd{
+    padding-right: 100px;
+    text-align: left;
+}
+
+.rowspanTd strong{
+    text-align: left;
+}

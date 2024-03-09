@@ -5,4 +5,7 @@
 //= link indice/index.css
 //= link bedrooms/index.css
 //= link bedrooms/show.css
-
+//= link reservations/index.css
+//= link reservations/new.css
+//= link controllers/reservations/new_fechas.js
+//= link controllers/reservations/fechas_no_escritas.js

@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   root to: 'indice#index'
   get "/habitaciones", to: "bedrooms#index"
   get "/habitaciones/:id", to: "bedrooms#show", as: :bedroom
+  get "/reservas", to: "reservations#index"
+  get "/reservas/new", to: 'reservations#new', as: :new_reservation
+  resources :category_bedrooms do
+    resources :residents
+  end
 
   # Defines the root path route ("/")
   # root "posts#index"

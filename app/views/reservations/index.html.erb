@@ -1,0 +1,175 @@
+<% content_for :title, "Reservaciones - Rubies" %>
+<%= stylesheet_link_tag "reservations/index.css" %> 
+<%= javascript_include_tag 'application', 'controllers/reservations/new_fechas' %>
+<%= javascript_include_tag 'application', 'controllers/reservations/fechas_no_escritas' %>
+
+<div class='encabezadoReserva'>
+    <h2>
+        <span>RESERVA ONLINE</span>
+    </h2>
+    <div class="fecha">
+        <label for="fecha_entrada">Fecha de entrada:</label>
+        <input type="date" id="fecha_entrada" name="fecha_entrada" min="<%= Date.today.to_s %>" required>
+    </div>
+    <div class="fecha">
+        <label for="fecha_salida">Fecha de salida:</label>
+        <input type="date" id="fecha_salida" name="fecha_salida" required>
+    </div>
+    <div class="boton_buscar">
+        <input type="submit" value="Buscar">
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const fechaEntradaInput = document.getElementById('fecha_entrada');
+  const fechaSalidaInput = document.getElementById('fecha_salida');
+
+  // Agrega evento de entrada al campo de entrada
+  fechaEntradaInput.addEventListener('input', function() {
+    // Calcula la fecha mínima como la fecha de entrada más un día
+    const fechaMinima = new Date(fechaEntradaInput.value);
+    fechaMinima.setDate(fechaMinima.getDate() + 1);
+
+    // Formatea la fecha mínima en el formato adecuado para el atributo min del input date
+    const fechaMinimaFormateada = fechaMinima.toISOString().split('T')[0];
+
+    // Establece la fecha mínima en el campo de salida
+    fechaSalidaInput.min = fechaMinimaFormateada;
+  });
+});
+</script>
+
+<div class='wrapper_body'>
+    <div class='container'>
+        <div class='bedroomsList'>
+            <% @bedrooms.each do |bedroom| %>
+            <div class='bedroom'>
+                <div class='info-bedroom'>
+                    <div class='imageBedroom'>
+                        <%= image_tag bedroom.image, class: "image" %>
+                    </div>
+                    <div class='caracteristicas'>
+                        <div class='titulos'>
+                            <h2><%= bedroom.title %></h2>
+                            <p>Camas: <%= bedroom.beds %></p>
+                        </div>
+                    </div>
+                </div>
+                <table class='b-1-s m-t-1 w-100' cellpadding='10'>
+                <div class='eleccion_cantidad'>
+                    <tbody>
+                    <tr>
+                        <td class="rowspanTd" colspan='2' rowspan='4'>
+                            <strong class='titulo_estandar'> Tarifa estandar </strong>
+                        </td>
+                        <td class='tds'>
+                            <div>Ocupacion</div>
+                            <div>1 personas</div>
+                        </td>
+                        <td class='tds'>
+                            <div>
+                                Antes: <span> <%= bedroom.priceNight/4 %></span>
+                            </div>
+                            <div>Ahorra un 50 %</div>
+                        </td>
+                        <td class='tds'>
+                            <div><%= bedroom.priceNight/4/2 %></div>
+                            <div>Precio 1 noches</div>
+                        </td>
+                        <td class='tds'>
+                            <div>
+                                <a class='boton' href="<%= new_reservation_path(categoryBedroomID: bedroom.id) %>">
+                                Reservar</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='tds'>
+                            <div>Ocupacion</div>
+                            <div>2 personas</div>
+                        </td>
+                        <td class='tds'>
+                            <div>
+                                Antes: <span> <%= bedroom.priceNight/3.5 %></span>
+                            </div>
+                            <div>Ahorra un 50 %</div>
+                        </td>
+                        <td class='tds'>
+                            <div><%= bedroom.priceNight/3.5/2 %></div>
+                            <div>Precio 2 noches</div>
+                        </td>
+                        <td class='tds'>
+                            <div>
+                                <a class='boton' href="<%= new_reservation_path(categoryBedroomID: bedroom.id) %>">
+                                Reservar</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='tds'>
+                            <div>Ocupacion</div>
+                            <div>3 personas</div>
+                        </td>
+                        <td class='tds'>
+                            <div>
+                                Antes: <span> <%= bedroom.priceNight/3 %></span>
+                            </div>
+                            <div>Ahorra un 50 %</div>
+                        </td>
+                        <td class='tds'>
+                            <div><%= bedroom.priceNight/3/2 %></div>
+                            <div>Precio 3 noches</div>
+                        </td>
+                        <td class='tds'> 
+                            <div>
+                                <a class='boton' href="<%= new_reservation_path(categoryBedroomID: bedroom.id) %>">
+                                Reservar</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='tds'>
+                            <div>Ocupacion</div>
+                            <div>4 personas</div>
+                        </td>
+                        <td class='tds'>
+                            <div>
+                                Antes: <span> <%= bedroom.priceNight/2 %></span>
+                            </div>
+                            <div>Ahorra un 50 %</div>
+                        </td>
+                        <td class='tds'>
+                            <div><%= bedroom.priceNight/2/2 %></div>
+                            <div>Precio 4 noches</div>
+                        </td>
+                        <td class='tds'>
+                            <div>
+                                <a class='boton' href="<%= new_reservation_path(categoryBedroomID: bedroom.id) %>">
+                                Reservar</a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </div>
+                </table>
+            </div>
+            <% end %>
+        </div>
+        <div class='containerReserva'>
+            <div class='cesta_compra'>
+                <aside>
+                    <div class='titulo'>
+                        <h1>Rubies Hotel</h1>
+                    </div>
+                    <div class='contenido_cesta_vacia'>
+                        <div class="p-20 bg-color-5 text-color-5 t-b text-center">
+                            <i class="fa fa-shopping-basket texto-color-3" aria-hidden="true"></i>
+                            <h2 class="t-b texto-color-3">Cesta vacía</h2>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div> 
+</div>

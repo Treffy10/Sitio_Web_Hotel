@@ -1,0 +1,47 @@
+
+<div class='container'>
+    <div class='habitacion'>
+        <div class='image_bedroom'>
+            <%= image_tag @categoryBedroom.image, class: "image" %>
+        </div>
+        <div class='caracteristicas'>
+            <div class='_caracteristicas'>
+                <h1><%= @categoryBedroom.title %></h1>
+                <span>Entrada: </span>
+                <span>Salida: </span>
+                <span>Oferta: Tarifa Estandar</span>
+                <span>Ocupacion: </span>
+            </div>
+        </div>    
+    </div>
+    <div class='formulario_huesped'>
+        <div class='condiciones reservas'>
+        </div>
+
+        <div claa='guia'>
+            <h2>Datos del cliente</h2>
+        </div>
+        <div class='subtitulo_guia'>Introduce los siguientes datos para continuar con la reserva</div>
+
+        <div class="model">
+            <%= form_with model: [@categoryBedroom, @resident] do |resident_form| %>
+                   <div class="campo">
+                    <%= resident_form.label :name %>
+                    <%= resident_form.text_field :name %>
+                </div>
+                <div class="campo">
+                    <%= resident_form.label :email %>
+                    <%= resident_form.email_field :email %>
+                </div>
+                <div class="campo">
+                    <%= resident_form.label :phone %>
+                    <%= resident_form.text_field :phone %>
+                </div>
+                <!-- Agrega más campos según sea necesario -->
+                <div class="acciones">
+                    <%= resident_form.submit "Guardar" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

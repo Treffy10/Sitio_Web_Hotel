@@ -1,19 +1,11 @@
 
-h1 span{
-    font-size: 54px;
-}
-
-.bedroomContainer{
-    display: inline-block;
-    border: 1px solid black;
-    margin: 165px auto;     
-}
-
-.imagenBedroom{
-    padding: auto;
-}
 .mainSpan{
     margin: 100px auto;
+}
+
+.mainSpan sub{
+    color: #757677;
+    font-size: 15px;
 }
 
 .titleMain span{
@@ -25,10 +17,40 @@ h1 span{
 
 .bedroomContainer{
     display: inline-block;
-    border: 1px solid black;    
-    margin: 100px 10px;
-    border-radius: 10px 10px 10px 10px;
-    width: 40%; 
+    border: 1px solid black; 
+    margin: 10px 10px;
+    border-radius: 10px;
+    width: 40%;
+    overflow: hidden; /* Oculta cualquier contenido que se desborde */ 
+}
+
+.imageBedroom {
+    transition: transform 0.3s ease-in-out; /* Transición suave */
+}
+
+.imageBedroom:hover {
+    transform: scale(1.02); /* Ajuste sutil en el zoom al hacer hover */
+}
+
+.xd{
+    overflow: hidden;
+    display: inline-block;
+    margin: 10px 10px; 
+}
+
+
+.image {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    margin: 10px auto;
+}
+
+.imageBedroom:hover .image {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
 }
 
 .image {
@@ -48,9 +70,7 @@ h1 span{
     margin-left: 30px;
 }
 
-.beds {
-    text-align: left;
-}
+
   
 .bed_description p {
     text-align: left; /* Centrar el texto */
@@ -58,5 +78,15 @@ h1 span{
     line-height: 1.5; /* Altura de línea para un espaciado adecuado entre líneas */
     white-space: pre-line; /* Previene que el texto se colapse en una sola línea */
     margin-bottom: 13px; /* Espacio entre párrafos */
-    width: 100%;
+    color: #757677;
+}
+
+.bedBedroom span{
+    font-size: 13px;
+    color: #757677;
+}
+
+.linkTitle {
+    text-decoration: none;
+    color: black;
 }

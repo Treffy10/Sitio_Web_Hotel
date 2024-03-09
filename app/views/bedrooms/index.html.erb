@@ -1,25 +1,28 @@
 <% content_for :title, "Habitaciones - Rubies" %>
-<%= stylesheet_link_tag "bedrooms/index" %>
+<%= stylesheet_link_tag "bedrooms/index.css" %>
 
-<h1 class='title'>
-    <span>Elige tu Habitacion</span>
-</h1>
-<sub>Disfruta de una experiencia agradable y acogedora en el confort y la comodidad de nuestras habitaciones.</sub>
-<% content_for :title, "Habitaciones - Rubies" %>
-<%= stylesheet_link_tag "bedrooms/index" %>
+<div class='mainSpan'>
+    <h1 class='titleMain'>
+        <span>Elige tu Habitacion</span>
+    </h1>
+    <sub>Disfruta de una experiencia agradable y acogedora en el confort y la comodidad de nuestras habitaciones.</sub>
+</div>
+>>>>>>> Stashed changes
 
 <div class='bedroomsList'>
     <% @bedrooms.each do |bedroom| %>
         <div class='bedroomContainer'>
+            <div class='xd'>
             <div class='imageBedroom'>
-                <%= image_tag bedroom.image.url, class: "doble_deluxe.jpg" %> <!-- Mostrar imagen -->
+                <%= image_tag bedroom.image, class: "image" %>
+            </div>
             </div>
             <div class='viewInfo'>
                 <div class='bedBedroom'>
-                    <span class='beds'>Camas: <%= bedroom.beds %></span>
+                    <span>Camas: <%= bedroom.beds %></span>
                 </div>
                 <div class='titleBedroom'>
-                    <%= link_to bedroom_path(bedroom.id) do %>
+                    <%= link_to bedroom_path(bedroom.id), class: 'linkTitle' do %>
                         <h2><%= bedroom.title %></h2>
                     <% end %>
                 </div>
@@ -29,4 +32,4 @@
             </div>
         </div>
     <% end %>
-</div>
+</div> 

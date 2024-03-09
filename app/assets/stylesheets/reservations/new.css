@@ -1,0 +1,10 @@
+
+.habitacion{
+    display: inline-block;
+    border: 1px solid black;
+}
+
+.formulario_huesped{
+    display: inline-block;
+    border: 1px solid black;
+}
