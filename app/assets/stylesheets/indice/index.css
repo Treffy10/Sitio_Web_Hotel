@@ -7,6 +7,51 @@ body {
   padding: 0;
 }
 
+.encabezadoReserva{
+  border: 1px solid black;
+}
+
+.encabezadoReserva {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+}
+
+.encabezadoReserva h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.fecha,
+.boton_buscar {
+  margin: 0 1rem;
+}
+
+.fecha label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.fecha input[type="date"] {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.boton_buscar input[type="submit"] {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 3px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+
 .container {
   max-width: 1200px; /* Ancho máximo del contenido */
   margin: 0 auto; /* Centrar el contenido */

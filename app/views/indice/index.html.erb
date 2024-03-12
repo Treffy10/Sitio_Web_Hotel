@@ -1,6 +1,46 @@
 <% content_for :title, "Inicio - Rubies Hotel" %>
 <%= stylesheet_link_tag "indice/index.css" %>
 
+<div class='encabezadoReserva'>
+    <h2>
+        <span>RESERVA ONLINE</span>
+    </h2>
+    <%= form_tag("/reservas", method: "get") do %>
+        <div class="fecha">
+            <label for="fecha_entrada">Fecha de entrada:</label>
+            <input type="date" id="fecha_entrada" name="fecha_entrada" min="<%= Date.today.to_s %>" required>
+        </div>
+        <div class="fecha">
+            <label for="fecha_salida">Fecha de salida:</label>
+            <input type="date" id="fecha_salida" name="fecha_salida" required>
+        </div>
+        <div class="boton_buscar">
+            <input type="submit" value="Buscar">
+        </div>
+    <% end %>
+</div>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const fechaEntradaInput = document.getElementById('fecha_entrada');
+  const fechaSalidaInput = document.getElementById('fecha_salida');
+
+  // Agrega evento de entrada al campo de entrada
+  fechaEntradaInput.addEventListener('input', function() {
+    // Calcula la fecha mínima como la fecha de entrada más un día
+    const fechaMinima = new Date(fechaEntradaInput.value);
+    fechaMinima.setDate(fechaMinima.getDate() + 1);
+
+    // Formatea la fecha mínima en el formato adecuado para el atributo min del input date
+    const fechaMinimaFormateada = fechaMinima.toISOString().split('T')[0];
+
+    // Establece la fecha mínima en el campo de salida
+    fechaSalidaInput.min = fechaMinimaFormateada;
+  });
+});
+</script>
+
+
   <div class="container">
     <section class="mision-vision">
       <h1>Misión</h1>

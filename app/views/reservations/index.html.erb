@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class='wrapper_body'>
     <div class='container'>
         <div class='bedroomsList'>
-            <% @bedrooms.each do |bedroom| %>
+            <% @available_category_bedrooms.each do |bedroom| %>
             <div class='bedroom'>
                 <div class='info-bedroom'>
                     <div class='imageBedroom'>
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <div class='titulos'>
                             <h2><%= bedroom.title %></h2>
                             <p>Camas: <%= bedroom.beds %></p>
-                        </div>
+                        </div>  
                     </div>
                 </div>
                 <table class='b-1-s m-t-1 w-100' cellpadding='10'>
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         </td>
                         <td class='tds'>
                             <div>
-                                <a class='boton' href="<%= new_reservation_path(category_bedroom_id: bedroom.id) %>">
+                                <a class='boton' href="<%= new_reservation_path(category_bedroom_id: bedroom.id, fecha_entrada: params[:fecha_entrada], fecha_salida: params[:fecha_salida]) %>">
                                 Reservar</a>
                             </div>
                         </td>
