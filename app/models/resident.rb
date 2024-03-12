@@ -1,3 +1,3 @@
 class Resident < ApplicationRecord
-  has_one :reservation
+  has_many :reservations, foreign_key: 'resident_id'
 end
