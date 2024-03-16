@@ -1,18 +1,25 @@
+<% content_for :title, "Reservacion Nueva - Rubies" %>
 
 <div class='container'>
-    <div class='habitacion'>
-        <div class='image_bedroom'>
-            <%= image_tag @category_bedroom.image, class: "image" %>
-        </div>
-        <div class='caracteristicas'>
-            <div class='_caracteristicas'>
-                <h1><%= @category_bedroom.title %></h1>
-                <span>Entrada: <%= @fecha_entrada %> </span>
-                <span>Salida: <%= @fecha_salida %> </span>
-                <span>Oferta: Tarifa Estandar</span>
-                <span>Ocupacion: </span>
+    <div class='reservation_info'>
+        <div class='habitacion'>
+            <div class='image_bedroom'>
+                <%= image_tag @category_bedroom.image, class: "image" %>
             </div>
-        </div>    
+            <div class='caracteristicas'>
+                <div class='_caracteristicas'>
+                    <h1><%= @category_bedroom.title %></h1>
+                    <span>Entrada: <%= @fecha_entrada %> </span>
+                    <span>Salida: <%= @fecha_salida %> [<%= @nights %> noche(s)]</span>
+                    <span>Oferta: Tarifa Estandar</span>
+                    <span>Ocupacion: <%= @ocupacion %> </span>
+                </div>
+            </div>    
+        </div>
+        <div class='total_price'>
+            <div class='price'>PRECIO TOTAL</div>
+            <div class='price'><%= @calculated_price %></div>
+        </div>
     </div>
     <div class='formulario_huesped'>
         <div class='condiciones reservas'>
@@ -26,6 +33,7 @@
         <div class="model">
             <%= form_with model: @reservation do |reservation_form| %>
                 <!-- Campos de Resident -->
+                <%= reservation_form.hidden_field :state, value: 0 %>
                 <%= reservation_form.fields_for :resident do |resident_fields| %>
                     <div class="campo">
                         <%= resident_fields.label :name %>
@@ -64,9 +72,15 @@
                         <%= resident_fields.email_field :email %>
                     </div>
                 <% end %>
-                <!-- Agrega más campos según sea necesario -->
                 <div class="acciones">
-                    <%= reservation_form.submit "Guardar" %>
+                    <!-- Formulario para enviar los datos con un botón de envío -->
+                    <%= form_tag(create_reservation_path, method: "post") do %>
+                        <%= hidden_field_tag :category_bedroom_id, @category_bedroom.id %>
+                        <%= hidden_field_tag :fecha_entrada, @fecha_entrada %>
+                        <%= hidden_field_tag :fecha_salida, @fecha_salida %>
+                        <%= hidden_field_tag :pago_total, @calculated_price %>
+                        <%= submit_tag "Guardar" %>
+                    <% end %>
                 </div>
             <% end %>
         </div>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ocupacion: 1
+  price: 1.5
+  descuento_web: 1.5
+  nights: 1
+
+two:
+  ocupacion: 1
+  price: 1.5
+  descuento_web: 1.5
+  nights: 1

@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_19_170151) do
-  create_table "admins", force: :cascade do |t|
+ActiveRecord::Schema[7.1].define(version: 2024_03_14_022026) do
+  create_table "admins", primary_key: "adminID", force: :cascade do |t|
+    t.integer "user_id"
     t.string "name"
     t.string "lastnamePaternal"
     t.string "lastnameMaternal"
@@ -24,34 +25,32 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_19_170151) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "bedrooms", force: :cascade do |t|
+  create_table "bedrooms", primary_key: "bedroom_id", force: :cascade do |t|
+    t.integer "category_bedroom_id", null: false
     t.string "numberBedroom"
-    t.boolean "avaibility"
+    t.integer "avaibility", null: false
     t.integer "floorLocation"
-    t.integer "categoryBedroom"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "category_bedrooms", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.float "priceNight"
-    t.integer "maxPersons"
-    t.string "beds"
-    t.text "image"
+# Could not dump table "category_bedrooms" because of following StandardError
+#   Unknown type 'REAL (2)' for column 'priceNight'
+
+  create_table "category_prices", primary_key: "category_price_id", force: :cascade do |t|
+    t.integer "category_bedroom_id"
+    t.integer "ocupacion"
+    t.float "price"
+    t.float "descuento_web"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "pays", force: :cascade do |t|
-    t.integer "reservationID"
-    t.string "paymentMethod"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "pays" because of following StandardError
+#   Unknown type 'REAL (10)' for column 'total_amount'
 
-  create_table "receptionists", force: :cascade do |t|
+  create_table "receptionists", primary_key: "recepcionist_id", force: :cascade do |t|
+    t.integer "user_id"
     t.string "name"
     t.string "lastnamePaternal"
     t.string "lastnameMaternal"
@@ -61,16 +60,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_19_170151) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "reservations", force: :cascade do |t|
-    t.integer "residentID"
-    t.integer "bedroomID"
-    t.integer "adminID"
-    t.date "dateReservation"
+  create_table "reservations", primary_key: "reservation_id", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "resident_id", null: false
+    t.integer "bedroom_id"
+    t.integer "pay_id"
+    t.date "arrivalDate"
+    t.date "departureDate"
+    t.integer "state", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "residents", force: :cascade do |t|
+  create_table "residents", primary_key: "resident_id", force: :cascade do |t|
     t.string "name"
     t.string "lastnamePaternal"
     t.string "lastnameMaternal"
@@ -84,9 +86,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_19_170151) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.integer "receptionistID"
-    t.integer "adminID"
+  create_table "users", primary_key: "user_id", force: :cascade do |t|
     t.string "username"
     t.string "password"
     t.date "creationDate"
@@ -94,5 +94,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_19_170151) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "bedrooms", "category_bedrooms", column: "categoryBedroom"
+  add_foreign_key "admins", "users", primary_key: "user_id"
+  add_foreign_key "bedrooms", "category_bedrooms", primary_key: "category_bedroom_id"
+  add_foreign_key "category_prices", "category_bedrooms", primary_key: "category_bedroom_id"
+  add_foreign_key "receptionists", "users", primary_key: "user_id"
+  add_foreign_key "reservations", "bedrooms", primary_key: "bedroom_id"
+  add_foreign_key "reservations", "pays", primary_key: "pay_id"
+  add_foreign_key "reservations", "residents", primary_key: "residentID"
+  add_foreign_key "reservations", "users", primary_key: "user_id"
 end

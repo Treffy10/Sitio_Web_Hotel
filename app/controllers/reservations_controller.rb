@@ -3,45 +3,69 @@ class ReservationsController < ApplicationController
     @fecha_entrada = params[:fecha_entrada]
     @fecha_salida = params[:fecha_salida]
 
-    # Obtener reservas existentes que se superponen con el lapso de tiempo proporcionado
-    existing_reservations = Reservation.where('(arrivalDate <= ? AND departureDate >= ?) OR (arrivalDate >= ? AND departureDate <= ?) OR (arrivalDate <= ? AND departureDate >= ?)',
-                                                @fecha_salida, @fecha_entrada,
-                                                @fecha_entrada, @fecha_salida,
-                                                @fecha_entrada, @fecha_salida)
+    # Convertir las fechas de cadena a objetos de fecha
+    fecha_entrada = Date.parse(@fecha_entrada)
+    fecha_salida = Date.parse(@fecha_salida)
+
+    # Calcular la duración de la estadía en noches
+    @duracion_estadia = (fecha_salida - fecha_entrada).to_i
 
     # Obtener todas las categorías de habitaciones
-    @available_category_bedrooms = CategoryBedroom.includes(:bedrooms).where(bedrooms: { avaibility: 0 })
+    @category_bedrooms = CategoryBedroom.all
 
-    # Filtrar las categorías de habitaciones disponibles basadas en las reservas existentes
-    existing_category_bedroom_ids = existing_reservations.pluck(:bedroom_id).uniq
-    @available_category_bedrooms = @available_category_bedrooms.where.not(id: existing_category_bedroom_ids)
+    # Obtener reservas existentes que se superponen con el lapso de tiempo proporcionado
+    existing_reservations = Reservation.where('(arrivalDate <= ? AND departureDate >= ?) OR (arrivalDate >= ? AND departureDate <= ?) OR (arrivalDate <= ? AND departureDate >= ?)',
+                                                params[:fecha_salida], params[:fecha_entrada],
+                                                params[:fecha_entrada], params[:fecha_salida],
+                                                params[:fecha_entrada], params[:fecha_salida])
+
+    # Obtener las ID de las habitaciones reservadas
+    reserved_bedroom_ids = existing_reservations.pluck(:bedroom_id)
+
+    # Filtrar las categorías de habitaciones disponibles
+    @available_category_bedrooms = @category_bedrooms.reject do |category_bedroom|
+      reserved_bedroom_ids.include?(category_bedroom.id)
+    end
   end
 
   def new
-    @reservation = Reservation.new
-    @category_bedroom = CategoryBedroom.find(params[:category_bedroom_id])
     @fecha_entrada = params[:fecha_entrada]
     @fecha_salida = params[:fecha_salida]
-    @pay = Pay.all # <- Falta trabajar con esto
+
+    fecha_entrada = Date.parse(@fecha_entrada)
+    fecha_salida = Date.parse(@fecha_salida)
+
+    @duracion_estadia = (fecha_salida - fecha_entrada).to_i
+
+    @reservation = Reservation.new
+    @category_bedroom = CategoryBedroom.find(params[:category_bedroom_id])
+    @nights = params[:noches]
+    category_price = CategoryPrice.find(params[:category_price_id])  # Suponiendo que pasas el ID del precio de categoría
+    @calculated_price = category_price.calculated_price(@duracion_estadia)
+    @ocupacion = params[:ocupacion]
     @reservation.build_resident # Construye un residente asociado a la reserva
   end
 
   def create
     @reservation = Reservation.new(reservation_params)
-    @recepcionist = Receptionist.new # Crear una nueva instancia de Receptionist con valor nulo
+    @user = User.find(1) # Se usara el user "fantasma" para estas reservas webs
+    @reservation.state = 0 # Establecer el estado como 0 (por pagar)
+    @reservation.arrivalDate = params[:fecha_entrada]
+    @reservation.departureDate = params[:fecha_salida]
+    @reservation.full_payment = params[:pago_total]
 
     category_bedroom = CategoryBedroom.find(params[:category_bedroom_id])
-    available_bedrooms = category_bedroom.bedrooms.where(availability: 0)
+    available_bedrooms = category_bedroom.bedrooms.where(avaibility: 0)
     random_available_bedroom = available_bedrooms.order("RANDOM()").first
 
     if random_available_bedroom.present?
       @reservation.bedroom = random_available_bedroom
-      @reservation.recepcionist = @recepcionist # Asignar el recepcionista nulo a la reserva
+      @reservation.user = @user # Asignar el usuario "fantasma" a la reserva
       # Save the reservation
       if @reservation.save
         # Update the availability of the reserved bedroom
         random_available_bedroom.update(availability: 1)
-        redirect_to @reservation, notice: 'La reserva se creó exitosamente.'
+        redirect_to pagos_path(reservation_id: @reservation.id), notice: 'La reserva se creó exitosamente.'
       else
         render :new
       end
@@ -53,6 +77,7 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:recepcionist_id, :bedroom_id, :arrivalDate, :departureDate, :state, resident_attributes: [:name, :lastnamePaternal, :lastnameMaternal, :dni, :phone, :location, :birthday, :nationality, :email])
+    params.require(:reservation).permit(:user_id, :bedroom_id, :full_payment , :arrivalDate, :departureDate, :state,
+    resident_attributes: [:name, :lastnamePaternal, :lastnameMaternal, :dni, :phone, :location, :birthday, :nationality, :email])
   end
 end
