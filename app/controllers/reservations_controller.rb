@@ -47,28 +47,39 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @category_bedroom = CategoryBedroom.find_by(category_bedroom_id: params[:category_bedroom_id])
+
+    if @category_bedroom.nil?
+      redirect_to new_reservation_path, alert: 'La categoría de habitación no existe'
+    return
+    end
+
     @reservation = Reservation.new(reservation_params)
-    @user = User.find(1) # Se usara el user "fantasma" para estas reservas webs
+    @user = User.find(1) # Se usará el user "fantasma" para estas reservas webs
     @reservation.state = 0 # Establecer el estado como 0 (por pagar)
     @reservation.arrivalDate = params[:fecha_entrada]
     @reservation.departureDate = params[:fecha_salida]
     @reservation.full_payment = params[:pago_total]
+    @pay = Pay.find(2)
 
-    category_bedroom = CategoryBedroom.find(params[:category_bedroom_id])
-    available_bedrooms = category_bedroom.bedrooms.where(avaibility: 0)
+    available_bedrooms = @category_bedroom.bedrooms.where(avaibility: 0)
     random_available_bedroom = available_bedrooms.order("RANDOM()").first
 
     if random_available_bedroom.present?
       @reservation.bedroom = random_available_bedroom
       @reservation.user = @user # Asignar el usuario "fantasma" a la reserva
-      # Save the reservation
-      if @reservation.save
-        # Update the availability of the reserved bedroom
-        random_available_bedroom.update(availability: 1)
-        redirect_to pagos_path(reservation_id: @reservation.id), notice: 'La reserva se creó exitosamente.'
-      else
-        render :new
-      end
+      # Asignar un valor nulo a pay_id
+      @reservation.pay = @pay
+
+    if @reservation.save
+      random_available_bedroom.update(avaibility: 1)
+      # Asignar el pay_id después de crear la reservación
+      redirect_to pagos_path(reservation_id: @reservation.id), notice: 'La reserva se creó exitosamente.'
+    else
+      # Agrega esta línea:
+      puts @reservation.errors.full_messages
+      render :new
+    end
     else
       redirect_to new_reservation_path, alert: 'No hay habitaciones disponibles en esta categoría.'
     end
@@ -77,7 +88,7 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:user_id, :bedroom_id, :full_payment , :arrivalDate, :departureDate, :state,
+    params.require(:reservation).permit(:user_id, :bedroom_id, :pay_id , :full_payment , :arrivalDate, :departureDate, :state,
     resident_attributes: [:name, :lastnamePaternal, :lastnameMaternal, :dni, :phone, :location, :birthday, :nationality, :email])
   end
 end

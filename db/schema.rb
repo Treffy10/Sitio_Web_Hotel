@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_022026) do
   end
 
 # Could not dump table "category_bedrooms" because of following StandardError
-#   Unknown type 'REAL (2)' for column 'priceNight'
+#   Unknown type 'REAL (5)' for column 'priceNight'
 
   create_table "category_prices", primary_key: "category_price_id", force: :cascade do |t|
     t.integer "category_bedroom_id"
@@ -46,8 +46,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_022026) do
     t.datetime "updated_at", null: false
   end
 
-# Could not dump table "pays" because of following StandardError
-#   Unknown type 'REAL (10)' for column 'total_amount'
+  create_table "pays", primary_key: "pay_id", force: :cascade do |t|
+    t.string "payment_method"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "receptionists", primary_key: "recepcionist_id", force: :cascade do |t|
     t.integer "user_id"
@@ -60,17 +63,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_022026) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "reservations", primary_key: "reservation_id", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "resident_id", null: false
-    t.integer "bedroom_id"
-    t.integer "pay_id"
-    t.date "arrivalDate"
-    t.date "departureDate"
-    t.integer "state", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "reservations" because of following StandardError
+#   Unknown type 'REAL' for column 'full_payment'
 
   create_table "residents", primary_key: "resident_id", force: :cascade do |t|
     t.string "name"
@@ -89,7 +83,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_022026) do
   create_table "users", primary_key: "user_id", force: :cascade do |t|
     t.string "username"
     t.string "password"
-    t.date "creationDate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

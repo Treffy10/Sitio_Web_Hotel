@@ -1,4 +1,5 @@
 class CategoryPrice < ApplicationRecord
+  self.primary_key = 'category_price_id'
   belongs_to :category_bedroom, foreign_key: 'category_bedroom_id'
 
   def calculated_price(duration_estadia)

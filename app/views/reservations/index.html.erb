@@ -45,17 +45,16 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class='wrapper_body'>
     <div class='container'>
         <div class='bedroomsList'>
-            
-            <% @available_category_bedrooms.each do |bedroom| %>
+            <% @available_category_bedrooms.each do |category_bedroom| %>
             <div class='bedroom'>
                 <div class='info-bedroom'>
                     <div class='imageBedroom'>
-                        <%= image_tag bedroom.image, class: "image" %>
+                        <%= image_tag category_bedroom.image, class: "image" %>
                     </div>
                     <div class='caracteristicas'>
                         <div class='titulos'>
-                            <h2><%= bedroom.title %></h2>
-                            <p>Camas: <%= bedroom.beds %></p>
+                            <h2><%= category_bedroom.title %></h2>
+                            <p>Camas: <%= category_bedroom.beds %></p>
                         </div>  
                     </div>
                 </div>
@@ -68,25 +67,25 @@ document.addEventListener("DOMContentLoaded", function() {
                         </td>
     
                         <div class='preciosList'>
-                            <% prices_for_bedroom = CategoryPrice.where(category_bedroom_id: bedroom.category_bedroom_id) %>
-                            <% prices_for_bedroom.each do |precio| %>
+                            <% prices_for_category_bedroom = CategoryPrice.where(category_bedroom_id: category_bedroom.category_bedroom_id) %>
+                            <% prices_for_category_bedroom.each do |precio| %>
                                     <td class='tds'>
                                         <div>Ocupacion</div>
                                         <div><%= precio.ocupacion %> personas</div>
                                     </td>
                                     <td class='tds'>
                                         <div>
-                                            Antes: <span> <%= bedroom.priceNight * @duracion_estadia %></span>
+                                            Antes: <span> <%= category_bedroom.priceNight * @duracion_estadia %></span>
                                         </div>
                                         <div>Ahorra un 50 %</div>
                                     </td>
                                     <td class='tds'>
-                                        <div>S/. <%= bedroom.priceNight * precio.descuento_web * @duracion_estadia %> </div>
+                                        <div>S/. <%= category_bedroom.priceNight * precio.descuento_web * @duracion_estadia %> </div>
                                         <div> Precio <%= @duracion_estadia %> noches</div>
                                     </td>
                                     <td class='tds'>
                                         <div>
-                                            <a class='boton' href="<%= new_reservation_path(category_bedroom_id: bedroom.category_bedroom_id, 
+                                            <a class='boton' href="<%= new_reservation_path(category_bedroom_id: category_bedroom.category_bedroom_id, 
                                             fecha_entrada: params[:fecha_entrada], fecha_salida: params[:fecha_salida], noches: @duracion_estadia, ocupacion: precio.ocupacion, category_price_id: precio.category_price_id)%>">
                                             Reservar</a>
                                         </div>
@@ -101,17 +100,17 @@ document.addEventListener("DOMContentLoaded", function() {
                         </td>
                         <td class='tds'>
                             <div>
-                                Antes: <span> <%= bedroom.priceNight %> </span>
+                                Antes: <span> <%= category_bedroom.priceNight %> </span>
                             </div>
                             <div>Ahorra un 50 %</div>
                         </td>
                         <td class='tds'>
-                            <div><%= bedroom.priceNight %></div>
+                            <div><%= category_bedroom.priceNight %></div>
                             <div> Precio <%= @duracion_estadia %> noches </div>
                         </td>
                         <td class='tds'>
                             <div>
-                                <a class='boton' href="<%= new_reservation_path(category_bedroom_id: bedroom.id, fecha_entrada: params[:fecha_entrada], fecha_salida: params[:fecha_salida]) %>">
+                                <a class='boton' href="<%= new_reservation_path(category_bedroom_id: category_bedroom.id, fecha_entrada: params[:fecha_entrada], fecha_salida: params[:fecha_salida]) %>">
                                 Reservar</a>
                             </div>
                         </td>
@@ -123,17 +122,17 @@ document.addEventListener("DOMContentLoaded", function() {
                         </td>
                         <td class='tds'>
                             <div>
-                                Antes: <span> <%= bedroom.priceNight * @duracion_estadia %></span>
+                                Antes: <span> <%= category_bedroom.priceNight * @duracion_estadia %></span>
                             </div>
                             <div>Ahorra un 50 %</div>
                         </td>
                         <td class='tds'>
-                            <div><%= bedroom.priceNight * @duracion_estadia %></div>
+                            <div><%= category_bedroom.priceNight * @duracion_estadia %></div>
                             <div> Precio <%= @duracion_estadia %> noches </div>
                         </td>
                         <td class='tds'> 
                             <div>
-                                <a class='boton' href="<%= new_reservation_path(category_bedroom_id: bedroom.category_bedroom_id, fecha_entrada: params[:fecha_entrada], fecha_salida: params[:fecha_salida]) %>">
+                                <a class='boton' href="<%= new_reservation_path(category_bedroom_id: category_bedroom.category_bedroom_id, fecha_entrada: params[:fecha_entrada], fecha_salida: params[:fecha_salida]) %>">
                                 Reservar</a>
                             </div>
                         </td>
@@ -145,17 +144,17 @@ document.addEventListener("DOMContentLoaded", function() {
                         </td>
                         <td class='tds'>
                             <div>
-                                Antes: <span> <%= bedroom.priceNight * @duracion_estadia %></span>
+                                Antes: <span> <%= category_bedroom.priceNight * @duracion_estadia %></span>
                             </div>
                             <div>Ahorra un 50 %</div>
                         </td>
                         <td class='tds'>
-                            <div><%= bedroom.priceNight * @duracion_estadia %></div>
+                            <div><%= category_bedroom.priceNight * @duracion_estadia %></div>
                             <div> Precio <%= @duracion_estadia %> noches </div>
                         </td>
                         <td class='tds'>
                             <div>
-                                <a class='boton' href="<%= new_reservation_path(category_bedroom_id: bedroom.id, fecha_entrada: params[:fecha_entrada], fecha_salida: params[:fecha_salida]) %>">
+                                <a class='boton' href="<%= new_reservation_path(category_bedroom_id: category_bedroom.id, fecha_entrada: params[:fecha_entrada], fecha_salida: params[:fecha_salida]) %>">
                                 Reservar</a>
                             </div>
                     
@@ -165,8 +164,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
                 </table>
             </div>
-            <% end %>
-           
+            <% end %>  
         </div>
         <div class='containerReserva'>
             <div class='cesta_compra'>
