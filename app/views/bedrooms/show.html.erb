@@ -1,6 +1,48 @@
-<% content_for :title, "#{@bedroom.title} - Rubies Hotel" %>
+<% content_for :title, "#{@category_bedroom.title} - Rubies Hotel" %>
+<%= stylesheet_link_tag "bedrooms/show.css" %>
 
-<h1 class='title'><%= @bedroom.title %></h1>
-<span class='beds'><%= @bedroom.beds %></span>
-<p class='description'><%= @bedroom.description %></p>
-<span class='priceNight'>S/ <%= @bedroom.priceNight %></span>
+<!--Las etiquetas "a" permiten crear un enlace a otras páginas de internet, archivos o rutas dentro de la misma página, direcciones de correo, o cualquier otra URL.  -->
+
+<div id='container'>
+    <div class='div_title'>
+        <h1 class='title'>
+            <span><%= @category_bedroom.title %></span>
+        </h1>
+    </div>
+
+    <div class='div_principal'>
+        <div class='separador'>
+            <div class='box_1'>
+                <div class='box_auxiliar'>
+                <div class='div_image'>
+                    <a class='enlace_image'>   
+                    <img><%= image_tag @category_bedroom.image, class: "image" %></img>
+                    </a>
+                </div>
+                <div class='div_description'>
+                    <h3 class='title_span'>
+                        <span>Rubies Hotel espera por ti.</span>
+                    </h3>
+                    <p class='description'><%= @category_bedroom.description %></p>
+                </div>
+                </div>
+            </div>
+
+            <div class='box_2'>
+                <div class='box_auxiliar'>
+                <div class='div_beds'>
+                    <span class='beds'><%= @category_bedroom.beds %></span>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class='footer'>
+        <section class='seccion'>
+
+        </section>
+    </div>
+</footer>

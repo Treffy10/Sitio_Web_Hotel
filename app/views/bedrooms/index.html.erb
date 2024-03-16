@@ -7,14 +7,15 @@
     </h1>
     <sub>Disfruta de una experiencia agradable y acogedora en el confort y la comodidad de nuestras habitaciones.</sub>
 </div>
->>>>>>> Stashed changes
 
 <div class='bedroomsList'>
     <% @bedrooms.each do |bedroom| %>
         <div class='bedroomContainer'>
             <div class='xd'>
             <div class='imageBedroom'>
-                <%= image_tag bedroom.image, class: "image" %>
+                <a class="enlace imagen">
+                    <img><%= image_tag bedroom.image, class: "image" %></img>
+                </a>
             </div>
             </div>
             <div class='viewInfo'>

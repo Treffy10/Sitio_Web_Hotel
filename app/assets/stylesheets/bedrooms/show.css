@@ -1,0 +1,77 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 60%;
+}
+
+.div_title{
+    margin-bottom: 220px;
+    margin-top: 100px;
+}
+
+
+h1{
+    font-size: 60px;
+}
+
+.div_principal {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.separador{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+  
+.box_1, .box_2 {
+    display: inline-block;
+    vertical-align: top;
+}
+  
+.box_1 {
+    width: 50%; /* Ajusta el ancho según tus necesidades */
+    margin-right: 20px; /* Espacio entre box_1 y box_2 */
+    text-align: center;
+    justify-content: center;
+    border: 1px solid black;
+    margin-left: 10px;
+}
+  
+.box_2 {
+    width: 50%; /* Ajusta el ancho según tus necesidades */
+    text-align: center;
+    justify-content: center;
+    border: 1px solid black;
+    margin-right: 10px;
+}
+
+.box_auxiliar{
+    text-align: center;
+    width: 100%;
+}
+
+.div_image{
+    text-align: center;
+    width: 90%;
+}
+
+.enlace_image img{
+    width: 1080px;
+    max-width: 100%;
+    height: auto;
+}
+
+.div_beds{
+    border-radius: 20px; /* Ajusta el valor según el radio de redondez deseado */
+    border: 1px solid #ccc; /* Línea de borde */
+    padding: 15px; /* Espaciado interno */
+} 

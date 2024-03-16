@@ -4,6 +4,6 @@ class BedroomsController < ApplicationController
   end
 
   def show
-    @bedroom = CategoryBedroom.find(params[:id])
+    @category_bedroom = CategoryBedroom.find(params[:id])
   end
 end
