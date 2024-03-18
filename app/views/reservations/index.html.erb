@@ -59,109 +59,39 @@ document.addEventListener("DOMContentLoaded", function() {
                     </div>
                 </div>
                 <table class='b-1-s m-t-1 w-100' cellpadding='10'>
-                <div class='eleccion_cantidad'>
-                    <tbody>
-                    <tr>
-                        <td class="rowspanTd" colspan='2' rowspan='4'>
-                            <strong class='titulo_estandar'> Tarifa estandar </strong>
-                        </td>
-    
-                        <div class='preciosList'>
-                            <% prices_for_category_bedroom = CategoryPrice.where(category_bedroom_id: category_bedroom.category_bedroom_id) %>
-                            <% prices_for_category_bedroom.each do |precio| %>
-                                    <td class='tds'>
-                                        <div>Ocupacion</div>
-                                        <div><%= precio.ocupacion %> personas</div>
-                                    </td>
-                                    <td class='tds'>
-                                        <div>
-                                            Antes: <span> <%= category_bedroom.priceNight * @duracion_estadia %></span>
-                                        </div>
-                                        <div>Ahorra un 50 %</div>
-                                    </td>
-                                    <td class='tds'>
-                                        <div>S/. <%= category_bedroom.priceNight * precio.descuento_web * @duracion_estadia %> </div>
-                                        <div> Precio <%= @duracion_estadia %> noches</div>
-                                    </td>
-                                    <td class='tds'>
-                                        <div>
-                                            <a class='boton' href="<%= new_reservation_path(category_bedroom_id: category_bedroom.category_bedroom_id, 
-                                            fecha_entrada: params[:fecha_entrada], fecha_salida: params[:fecha_salida], noches: @duracion_estadia, ocupacion: precio.ocupacion, category_price_id: precio.category_price_id)%>">
-                                            Reservar</a>
-                                        </div>
-                                    </td>
-                            <% end %> 
+                        <div class='tbody'>
+                            <tbody>
+                                <tr>
+                                    <% prices_for_category_bedroom = CategoryPrice.where(category_bedroom_id: category_bedroom.category_bedroom_id) %>
+                                    <% prices_for_category_bedroom.each do |precio| %>
+                                        <td class="rowspanTd" colspan='2' rowspan='4'>
+                                            <strong class='titulo_estandar'> Tarifa estandar </strong>
+                                        </td>
+                                        <td class='tds'>
+                                            <div>Ocupacion</div>
+                                            <div><%= precio.ocupacion %> personas</div>
+                                        </td>
+                                        <td class='tds'>
+                                            <div>
+                                                Antes: <span> <%= category_bedroom.priceNight * @duracion_estadia %></span>
+                                            </div>
+                                            <div>Ahorra un 50 %</div>
+                                        </td>
+                                        <td class='tds'>
+                                            <div>S/. <%= category_bedroom.priceNight * precio.descuento_web * @duracion_estadia %> </div>
+                                            <div> Precio <%= @duracion_estadia %> noches</div>
+                                        </td>
+                                        <td class='tds'>
+                                            <div>
+                                                <a class='boton' href="<%= new_reservation_path(category_bedroom_id: category_bedroom.category_bedroom_id, 
+                                                fecha_entrada: params[:fecha_entrada], fecha_salida: params[:fecha_salida], noches: @duracion_estadia, ocupacion: precio.ocupacion, category_price_id: precio.category_price_id)%>">
+                                                Reservar</a>
+                                            </div>
+                                        </td>
+                                    <% end %> 
+                                </tr>
+                            </tbody>
                         </div>
-                    </tr>
-                    <tr>
-                        <td class='tds'>
-                            <div>Ocupacion</div>
-                            <div>2 personas</div>
-                        </td>
-                        <td class='tds'>
-                            <div>
-                                Antes: <span> <%= category_bedroom.priceNight %> </span>
-                            </div>
-                            <div>Ahorra un 50 %</div>
-                        </td>
-                        <td class='tds'>
-                            <div><%= category_bedroom.priceNight %></div>
-                            <div> Precio <%= @duracion_estadia %> noches </div>
-                        </td>
-                        <td class='tds'>
-                            <div>
-                                <a class='boton' href="<%= new_reservation_path(category_bedroom_id: category_bedroom.id, fecha_entrada: params[:fecha_entrada], fecha_salida: params[:fecha_salida]) %>">
-                                Reservar</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class='tds'>
-                            <div>Ocupacion</div>
-                            <div>3 personas</div>
-                        </td>
-                        <td class='tds'>
-                            <div>
-                                Antes: <span> <%= category_bedroom.priceNight * @duracion_estadia %></span>
-                            </div>
-                            <div>Ahorra un 50 %</div>
-                        </td>
-                        <td class='tds'>
-                            <div><%= category_bedroom.priceNight * @duracion_estadia %></div>
-                            <div> Precio <%= @duracion_estadia %> noches </div>
-                        </td>
-                        <td class='tds'> 
-                            <div>
-                                <a class='boton' href="<%= new_reservation_path(category_bedroom_id: category_bedroom.category_bedroom_id, fecha_entrada: params[:fecha_entrada], fecha_salida: params[:fecha_salida]) %>">
-                                Reservar</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class='tds'>
-                            <div>Ocupacion</div>
-                            <div>4 personas</div>
-                        </td>
-                        <td class='tds'>
-                            <div>
-                                Antes: <span> <%= category_bedroom.priceNight * @duracion_estadia %></span>
-                            </div>
-                            <div>Ahorra un 50 %</div>
-                        </td>
-                        <td class='tds'>
-                            <div><%= category_bedroom.priceNight * @duracion_estadia %></div>
-                            <div> Precio <%= @duracion_estadia %> noches </div>
-                        </td>
-                        <td class='tds'>
-                            <div>
-                                <a class='boton' href="<%= new_reservation_path(category_bedroom_id: category_bedroom.id, fecha_entrada: params[:fecha_entrada], fecha_salida: params[:fecha_salida]) %>">
-                                Reservar</a>
-                            </div>
-                    
-                        </td>   
-                    </tr>
-                    </tbody>
-                </div>
                 </table>
             </div>
             <% end %>  

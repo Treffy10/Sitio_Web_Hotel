@@ -79,6 +79,9 @@
                         <%= hidden_field_tag :fecha_entrada, @fecha_entrada %>
                         <%= hidden_field_tag :fecha_salida, @fecha_salida %>
                         <%= hidden_field_tag :pago_total, @calculated_price %>
+                        <%= hidden_field_tag :bedroom_available, @bedroom_id %>
+                        <%= hidden_field_tag :arrival_date, @fecha_entrada %>
+                        <%= hidden_field_tag :departure_date, @fecha_salida %>
                         <%= submit_tag "Guardar" %>
                     <% end %>
                 </div>
