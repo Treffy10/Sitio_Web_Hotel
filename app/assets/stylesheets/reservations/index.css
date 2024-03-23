@@ -1,44 +1,58 @@
+body{
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    display: block;
+}
+
 
 .wrapper_body{
     display: block;
+    text-align: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .container{
     display: block;
-    margin: 10px 100px;
-    width: 90%;
+    margin: 30px 100px;
 }
 
 .encabezadoReserva{
-    border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(113, 135, 164, 0.749);
+    /*border-radius: 10px; */
 }
 
-.encabezadoReserva {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #f0f0f0;
-    border-bottom: 1px solid #ccc;
-  }
   
-  .encabezadoReserva h2 {
+.encabezadoReserva h2 {
     margin: 0;
     font-size: 1.2rem;
-  }
-  
-  .fecha,
-  .boton_buscar {
-    margin: 0 1rem;
-  }
-  
-  .fecha label {
-    display: block;
-    margin-bottom: 5px;
+}
+
+.encabezadoReserva h2 span{
+    color:#a91d1d; 
     font-weight: bold;
   }
   
-  .fecha input[type="date"] {
+.fecha,
+.boton_buscar {
+    margin: 0 1rem;
+    text-align: center;
+    display: inline-block;
+}
+  
+.fecha label {
+    display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+  
+.fecha input[type="date"] {
     padding: 5px 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -48,9 +62,10 @@
     padding: 5px 15px;
     border: none;
     border-radius: 3px;
-    background-color: #333;
+    background-color: #27ae60;
     color: #fff;
     cursor: pointer;
+    border: 10px 10px 10px 10px;
   }
 
 .containerReserva{
@@ -72,29 +87,20 @@
     margin: auto 10px;
     display: inline-block; 
     vertical-align: top;
-    width: 55%;
-    border: 1px solid black;
     overflow: hidden;
     text-align: center; /* Centra horizontalmente el contenido */
-}
-
-.bedroom{
-    display: block;
-    border: 1px solid black; 
-    width: 98%;
-    overflow: hidden; /* Oculta cualquier contenido que se desborde */
-    margin: 10px 5px;
-    padding-bottom: 400px;
 }
 
 .caracteristicas{
     display: inline-block;
     vertical-align: top;
-    border: 1px solid black;
     width: 50%;
     position: absolute;
     bottom: 0%;
-    top: 0%;
+    top: 0%; 
+    margin-right: 10px;
+    margin-bottom: 2px;
+    background-color: #f0f0f0;
 }
 
 .caracteristicas h2{
@@ -111,36 +117,43 @@
     margin: 10px 10px;
 }
 
+.bedroom{
+    display: block;
+    /*width: 98%; */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde */
+    margin: 10px 5px;
+    padding-bottom: 400px;
+    background-color: white;
+}
+
 .info-bedroom{
     position: relative;
     display: block;
-    border: 1px solid black;
     width: 100%;
     margin: auto auto;
+    padding-top: 15px;
+    padding-bottom: 220px;
     overflow: hidden;
-    padding-bottom: 200px;
 }
 
 .imageBedroom{
-    width: 50%;
+    width: 364px;
+    height: 210px;
     display: inline-block;
     vertical-align: top;
-    border: 1px solid black;
     position: absolute;
     left: 0%; /* Coloca el div 2 en el lado derecho del contenedor padre */
+    overflow: hidden;
 }
 
 .imageBedroom .image{
     width: 100%;
+    height: 100%;
 }
 
 
 .tds span{
     text-decoration: line-through;
-}
-
-.cesta{
-    padding: 10px auto;
 }
 
 .titulo{
@@ -159,8 +172,6 @@
     display: block;
 }
 
-
-
 td{
     border: 1px solid black
 }
@@ -177,3 +188,34 @@ td{
 .rowspanTd strong{
     text-align: left;
 }
+
+.reservar{
+    border-radius: 3px;    
+}
+
+.boton {
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.personas{
+    color: #111111;
+}
+
+.tbody{
+    text-align: center;
+}
+
+tbody .c_opcion{
+    width: 100%;
+    height: 100%;
+}
+
+.div_opcion{
+    width: 100%;
+    height: 100%;
+}
+  

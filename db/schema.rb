@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_03_14_022026) do
-  create_table "admins", primary_key: "adminID", force: :cascade do |t|
+  create_table "admins", primary_key: "admin_id", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
     t.string "lastnamePaternal"
@@ -28,14 +28,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_022026) do
   create_table "bedrooms", primary_key: "bedroom_id", force: :cascade do |t|
     t.integer "category_bedroom_id", null: false
     t.string "numberBedroom"
-    t.integer "avaibility", null: false
+    t.integer "availability", null: false
     t.integer "floorLocation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-# Could not dump table "category_bedrooms" because of following StandardError
-#   Unknown type 'REAL (5)' for column 'priceNight'
+  create_table "category_bedrooms", primary_key: "category_bedroom_id", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.decimal "priceNight", precision: 5
+    t.integer "maxPersons"
+    t.string "beds"
+    t.text "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "category_prices", primary_key: "category_price_id", force: :cascade do |t|
     t.integer "category_bedroom_id"
@@ -63,8 +71,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_022026) do
     t.datetime "updated_at", null: false
   end
 
-# Could not dump table "reservations" because of following StandardError
-#   Unknown type 'REAL' for column 'full_payment'
+  create_table "reservations", primary_key: "reservation_id", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "resident_id", null: false
+    t.integer "bedroom_id"
+    t.integer "pay_id"
+    t.decimal "full_payment"
+    t.date "arrivalDate"
+    t.date "departureDate"
+    t.integer "state", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "residents", primary_key: "resident_id", force: :cascade do |t|
     t.string "name"
@@ -93,6 +111,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_022026) do
   add_foreign_key "receptionists", "users", primary_key: "user_id"
   add_foreign_key "reservations", "bedrooms", primary_key: "bedroom_id"
   add_foreign_key "reservations", "pays", primary_key: "pay_id"
-  add_foreign_key "reservations", "residents", primary_key: "residentID"
+  add_foreign_key "reservations", "residents", primary_key: "resident_id"
   add_foreign_key "reservations", "users", primary_key: "user_id"
 end

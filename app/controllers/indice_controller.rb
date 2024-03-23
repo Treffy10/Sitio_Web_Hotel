@@ -1,12 +1,9 @@
+# Lo que primeramente hace este controller es calcular la duracion de estadia de las fechas elegidas para asi pasar este valor a la ruta
+# de /reservas.
+# Cuando creas una instancia variable usando el @, esta se podra usar en cualquier metodo de solo esta clase y conservara su valor dado.
+# Al querer usar esa variable instancia en la vista de este controlller no hace falta escribirlo con el @
+
 class IndiceController < ApplicationController
   def index
-    # Obtener todas las categorías de habitaciones
-    #@category_bedrooms = CategoryBedroom.all
-
-    # Filtrar las categorías de habitaciones disponibles
-    #@available_category_bedrooms = @category_bedrooms.select do |category_bedroom|
-      # Verificar si la categoría de habitación tiene al menos un Bedroom con availability en 0
-     # category_bedroom.bedrooms.any? { |bedroom| bedroom.avaibility == 0 }
-    #end
   end
 end

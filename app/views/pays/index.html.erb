@@ -1,11 +1,21 @@
 <% content_for :title, "Pagos - Rubies" %>
+<%= stylesheet_link_tag "pays/index.css" %>
 
-<div class='div_central'>
-    <div class='pay_container'>
-        <%= @payment_method.each do |payment_method| %>
-            <div class='opcion'>
-                <span><%= payment_method.payment_method %></span>
-            </div>
-        <% end %>
+<div class="container">
+    <div class='div_central'>
+        <div class="eleccion">
+            <span>Seleccione su metodo de pago</span>
+        </div>
+        <div class='pay_container'>
+            <% @payment_method.each do |pay_method| %>
+                <div class='opcion'>
+                    <nav>
+                        <ul>
+                            <li><span><%= pay_method.payment_method %></span><li>
+                        <ul>               
+                    </nav>
+                </div>
+            <% end %>
+        </div>
     </div>
 </div>

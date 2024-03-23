@@ -1,0 +1,7 @@
+@import "bootstrap";
+
+.logo{
+  background-color: rgba(113, 135, 164, 0.749);
+  width: 100%;
+  text-align: center;        
+}

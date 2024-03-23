@@ -1,10 +1,176 @@
 
+body{
+    background-color: #f0f0f0;
+    padding: 0;
+    margin: 0;
+}
+
+.row{
+    display: flex;
+}
+
+.columna{
+    display: flex;
+}
+
+.container{
+    margin-top: 20px;
+    display: flex; 
+    justify-content: center; /* Centra el contenido horizontalmente */
+     /* Centra el contenido verticalmente */
+    align-items: flex-start;
+}
+
+.image_bedroom{
+    text-align: center;
+    margin-right: 20px;     
+}
+
+.image_bedroom .image{
+    width: 280px;
+    overflow: hidden;
+}
+
+.caracteristicas{
+    padding-left: 10px;
+    padding-right: 50px;
+}
+
+._caracteristicas h1{
+    font-size: 15px;
+}
+
+.c .s{
+    color: black;
+}
+
+.caracteristicas h1 {
+    padding: 5px;
+}
+
+.t_habitacion{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    text-align: left;
+    color: #27ae60;
+}
+
+.t_hotel{
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+}   
+
+.t_category .s{
+   text-align: left;
+}
+
+.ubigeo{
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+}
+
 .habitacion{
-    display: inline-block;
-    border: 1px solid black;
+    display: flex;    
 }
 
 .formulario_huesped{
     display: inline-block;
-    border: 1px solid black;
+    border: 1px solid white;
+    background-color: white;
+    text-align: center;
+    width: 50%;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+.reservation_info{
+    border: 1px solid white;
+    background-color: white;
+    display: inline-block;
+    width: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+
+.datos_title{
+    text-align: left;
+    font-size: 18px;
+    color: #27ae60;
+}
+
+.subtitulo_datos{
+    text-align: left;
+    padding: 5px;
+}
+
+.model{
+    text-align: center;
+}
+
+.model .campo{
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;   
+}
+
+.campo .imput{
+    width: 100%;
+}
+
+.prices{
+    overflow: hidden;
+}
+
+.total_price{
+    display: flex;
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.t_price_online{
+    display: flex;
+    padding: 10px;
+    text-align: center;
+    background-color: #27ae60;
+    overflow: hidden;
+}
+
+.p_online p{
+    color: white;
+    white-space: nowrap;
+}
+
+.p, .p_online{
+    padding-right: 170px;
+}
+
+.p_amount, .p_amount_online{
+    padding-left: 170px;
+}
+
+.p_amount_online p{
+    color: white;
+    white-space: nowrap;
+}
+
+.horarios{
+    padding: 10px;
+    text-align: left;   
+}
+
+.acciones .boton-reservar{
+    border: #27ae60;
+    padding-right: 50px; 
+    padding-left: 50px; 
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+    color: white;
+    border-radius: 10px 10px 10px 10px;    
 }

@@ -1,75 +1,93 @@
 <% content_for :title, "Reservacion Nueva - Rubies" %>
+<%= stylesheet_link_tag "reservations/new.css" %>
 
 <div class='container'>
-    <div class='reservation_info'>
-        <div class='habitacion'>
+    <div class="row">
+        <div class="columna">
+            <div class='reservation_info'>
+        <div class="t_habitacion">
+            <h2 style="font-size: 18px">1. Datos de su reserva</h2>
+        </div>
+        <div class="t_hotel">Rubies Hotel</div>
+        <div class="ubigeo">Av.Amazonas #523, Tingo Maria, Peru</div>
+        <div class='habitacion' style="background-color: #f0f0f0">
             <div class='image_bedroom'>
-                <%= image_tag @category_bedroom.image, class: "image" %>
+                <%= image_tag @category_bedroom.image, class: "image", style: "overflow: hidden" %>
             </div>
             <div class='caracteristicas'>
                 <div class='_caracteristicas'>
-                    <h1><%= @category_bedroom.title %></h1>
-                    <span>Entrada: <%= @fecha_entrada %> </span>
-                    <span>Salida: <%= @fecha_salida %> [<%= @nights %> noche(s)]</span>
-                    <span>Oferta: Tarifa Estandar</span>
-                    <span>Ocupacion: <%= @ocupacion %> </span>
+                    <div class="t_category">
+                        <h1 class="s"><%= @category_bedroom.title %></h1>
+                    </div>
+                    <div class="c">
+                        <span class="s">Entrada: <%= @fecha_entrada %> </span>
+                    </div>
+                    <div class="c">
+                        <span class="s">Salida: <%= @fecha_salida %> [<%= @nights %> noche(s)]</span>
+                    </div>
+                    <div class="c">
+                        <span class="s">Oferta: Tarifa Estandar</span>
+                    </div>
+                    <div class="c">
+                        <span class="s">Ocupacion: <%= @ocupacion %> </span>
+                    </div>                
                 </div>
             </div>    
         </div>
-        <div class='total_price'>
-            <div class='price'>PRECIO TOTAL</div>
-            <div class='price'><%= @calculated_price %></div>
+        <div class="prices">
+            <div class='total_price'>
+                <div class='p' style="white-space: nowrap; width: 50%"><p>PRECIO TOTAL</p></div>
+                <div class='p_amount' style="white-space: nowrap; width: 50%"><p>S/. <%= @calculated_price %><p></div>
+            </div>
+            <div class ='t_price_online'>
+                <div class='p_online' style="width: 50%"><p>PAGO ONLINE</p></div>
+                <div class='p_amount_online' style="width: 50%"><p>S/. <%= @calculated_price %><p></div>
+            </div>
         </div>
-    </div>
-    <div class='formulario_huesped'>
+        <div class="horarios">
+            <h4>Horarios</h4>
+            <h5>Hora Entrada | Check-In </h5>
+            <p>A partir de las 14:00:00</p>
+            <h5>Hora Salida | Check-Out </h5>
+            <p>Hasta las 10:00:00</p>
+        </div>
+        </div>
+        <div class='formulario_huesped'>
         <div class='condiciones reservas'>
         </div>
-
-        <div claa='guia'>
-            <h2>Datos del cliente</h2>
-        </div>
-        <div class='subtitulo_guia'>Introduce los siguientes datos para continuar con la reserva</div>
-
+        <h2 class='datos_title' style="white-space: nowrap">2. Datos del cliente</h2>
+        <div class="subtitulo_datos" style="white-space: nowrap">Introduce los siguientes datos para continuar con la reserva</div>
         <div class="model">
             <%= form_with model: @reservation do |reservation_form| %>
                 <!-- Campos de Resident -->
                 <%= reservation_form.hidden_field :state, value: 0 %>
                 <%= reservation_form.fields_for :resident do |resident_fields| %>
-                    <div class="campo">
-                        <%= resident_fields.label :name %>
-                        <%= resident_fields.text_field :name %>
+                    <div class="campo" style="padding: 5px">
+                        <%= resident_fields.text_field :name, placeholder: "* Nombre", class: "imput" %>
                     </div>
-                    <div class="campo">
-                        <%= resident_fields.label :lastnamePaternal %>
-                        <%= resident_fields.text_field :lastnamePaternal %>
+                     <div class="campo" style="padding: 5px">
+                        <%= resident_fields.text_field :lastnamePaternal, placeholder: "* Apellido Paternal", class: "imput" %>
                     </div>
-                    <div class="campo">
-                        <%= resident_fields.label :lastnameMaternal %>
-                        <%= resident_fields.text_field :lastnameMaternal %>
+                    <div class="campo" style="padding: 5px">
+                        <%= resident_fields.text_field :lastnameMaternal, placeholder: "* Apellido Maternal", class: "imput"%>
                     </div>
-                    <div class="campo">
-                        <%= resident_fields.label :dni %>
-                        <%= resident_fields.text_field :dni %>
+                    <div class="campo" style="padding: 5px">
+                        <%= resident_fields.text_field :dni, placeholder: "* Dni", class: "imput" %>
                     </div>
-                    <div class="campo">
-                        <%= resident_fields.label :phone %>
-                        <%= resident_fields.text_field :phone %>
+                    <div class="campo" style="padding: 5px">
+                        <%= resident_fields.text_field :phone, placeholder: "* Telefono", class: "imput" %>
                     </div>
-                    <div class="campo">
-                        <%= resident_fields.label :location %>
-                        <%= resident_fields.text_field :location %>
+                    <div class="campo" style="padding: 5px">
+                        <%= resident_fields.text_field :location, placeholder: "* Locacion", class: "imput" %>
                     </div>
-                    <div class="campo">
-                        <%= resident_fields.label :birthday %>
-                        <%= resident_fields.text_field :birthday %>
+                    <div class="campo" style="padding: 5px">
+                        <%= resident_fields.date_field :birthday, placeholder: "* Fecha de cumpleaños", class: "imput" %>
                     </div>
-                    <div class="campo">
-                        <%= resident_fields.label :nationality %>
-                        <%= resident_fields.text_field :nationality %>
+                    <div class="campo" style="padding: 5px">
+                        <%= resident_fields.text_field :nationality, placeholder: "* Nacionalidad", class: "imput" %>
                     </div>  
-                    <div class="campo">
-                        <%= resident_fields.label :email %>
-                        <%= resident_fields.email_field :email %>
+                    <div class="campo" style="padding: 5px">
+                        <%= resident_fields.email_field :email, placeholder: "* Email", class: "imput" %>
                     </div>
                 <% end %>
                 <div class="acciones">
@@ -82,10 +100,12 @@
                         <%= hidden_field_tag :bedroom_available, @bedroom_id %>
                         <%= hidden_field_tag :arrival_date, @fecha_entrada %>
                         <%= hidden_field_tag :departure_date, @fecha_salida %>
-                        <%= submit_tag "Guardar" %>
+                        <%= submit_tag "Finalizar Reserva", class: "boton-reservar", style: "background-color: #27ae60"%>
                     <% end %>
                 </div>
             <% end %>
+        </div>
+        </div>
         </div>
     </div>
 </div>

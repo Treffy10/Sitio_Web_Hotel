@@ -1,6 +1,7 @@
 body{
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 .container{
@@ -30,6 +31,7 @@ h1{
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow: hidden;
 }
   
 .box_1, .box_2 {
@@ -38,20 +40,17 @@ h1{
 }
   
 .box_1 {
-    width: 50%; /* Ajusta el ancho según tus necesidades */
-    margin-right: 20px; /* Espacio entre box_1 y box_2 */
+    width: 100%; /* Ajusta el ancho según tus necesidades */
     text-align: center;
     justify-content: center;
-    border: 1px solid black;
-    margin-left: 10px;
+    border: 1px solid black;    
 }
   
 .box_2 {
-    width: 50%; /* Ajusta el ancho según tus necesidades */
+    width: 100%; /* Ajusta el ancho según tus necesidades */
     text-align: center;
     justify-content: center;
     border: 1px solid black;
-    margin-right: 10px;
 }
 
 .box_auxiliar{

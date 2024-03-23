@@ -1,17 +1,22 @@
+<!--Se pone el titulo para el head-->
 <% content_for :title, "Inicio - Rubies Hotel" %>
+<!--Se llama all css-->
 <%= stylesheet_link_tag "indice/index.css" %>
 
+
+<!-- En los imputs de este div se estan esperando valores de tipo Date y estos valores que son las fechas seran pasadas como str en la 
+ siguiente ruta-->
 <div class='encabezadoReserva'>
     <h2>
-        <span>RESERVA ONLINE</span>
+        <span>RESERVA DIRECTA</span>
     </h2>
     <%= form_tag("/reservas", method: "get") do %>
         <div class="fecha">
-            <label for="fecha_entrada">Fecha de entrada:</label>
+            <label for="fecha_entrada" style="color: white">Fecha de entrada:</label>
             <input type="date" id="fecha_entrada" name="fecha_entrada" min="<%= Date.today.to_s %>" required>
         </div>
         <div class="fecha">
-            <label for="fecha_salida">Fecha de salida:</label>
+            <label for="fecha_salida" style="color: white">Fecha de salida:</label>
             <input type="date" id="fecha_salida" name="fecha_salida" required>
         </div>
         <div class="boton_buscar">
@@ -40,23 +45,49 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-
-<div class="container">
-  <section class="mision-vision">
-    <h1>Misión</h1>
-    <h2>Nuestra misión es proporcionar servicios de calidad que satisfagan las necesidades de nuestros clientes y contribuyan al desarrollo sostenible de la comunidad.</h2>
-
-    <h1>Visión</h1>
-    <h2>Buscamos ser líderes en nuestro sector, reconocidos por nuestra excelencia en el servicio al cliente y nuestro compromiso con la innovación y la responsabilidad social.</h2>
+<div class="vista" style="text-aling: center">
+  <div class="container">
+  <section class="mision-vision" style="overflow: hidden; display: block; aling-items: center">
+    <div class="row1" style="display: flex">
+    <div class="mision" style="margin-right: 90px">
+      <div class='row'>
+        <div class="title">
+        <h1>Misión</h1>
+        </div>  
+        <div class="subtitle" style="text-aling: left; padding: 3px">
+          <h2>Nuestra misión es proporcionar servicios de calidad que satisfagan las necesidades de nuestros clientes y contribuyan al desarrollo sostenible de la comunidad.</h2>
+        </div>   
+      </div>  
+      </div>
+      
+      <div class="vision" style="margin-left: 100px">
+      <div class = 'row'>
+        <div class="title">
+          <h1>Visión</h1>
+        </div>
+        <div class="subtitle" style="text-aling: left; padding: 3px">
+          <h2>Buscamos ser líderes en nuestro sector, reconocidos por nuestra excelencia en el servicio al cliente y nuestro compromiso con la innovación y la responsabilidad social.</h2>
+        </div>
+      </div>
+      </div>
+    </div>  
   </section>
 
-  <section class="contacto">
-    <h1>Contacto</h1>
-    <ul>
-      <li>Teléfono: +1234567890</li>
-      <li>Correo electrónico: info@ejemplo.com</li>
-      <li>Dirección: Calle Principal #123, Ciudad, País</li>
-    </ul>
-  </section>
+  <div class="section_div">
+    <section class="section_contacto">
+    <div class='title'>
+      <h1>Contacto</h1>
+    </div>
+    <div class='list-group'>  
+      <ul>
+        <li>Teléfono: +1234567890</li>
+        <li>Correo electrónico: info@ejemplo.com</li>
+        <li>Dirección: Calle Principal #123, Ciudad, País</li>
+      </ul> 
+    </div>
+    </section>
+  </div>
+  </div>
 </div>
 
+  

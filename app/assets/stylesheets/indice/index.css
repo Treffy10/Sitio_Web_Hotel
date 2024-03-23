@@ -2,22 +2,20 @@
 /* Estilos generales */
 body {
   font-family: Arial, sans-serif;
-  color: #333; /* Color del texto principal */
+  color: black; /* Color del texto principal */
   margin: 0;
   padding: 0;
+  background-image: url('mil_horas.jpg');  /*aqui ira el css para la imagen de fondo*/
+  background-size: cover;
+  background-position: center;
 }
 
-.encabezadoReserva{
-  border: 1px solid black;
-}
-
-.encabezadoReserva {
+.encabezadoReserva {  
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #ccc;
+  background-color: rgba(113, 135, 164, 0.749);
 }
 
 .encabezadoReserva h2 {
@@ -25,9 +23,16 @@ body {
   font-size: 1.2rem;
 }
 
+.encabezadoReserva h2 span{
+  color:#a91d1d; 
+  font-weight: bold;
+}
+
 .fecha,
 .boton_buscar {
   margin: 0 1rem;
+  text-align: center;
+  display: inline-block;
 }
 
 .fecha label {
@@ -44,80 +49,80 @@ body {
 
 .boton_buscar input[type="submit"] {
   padding: 5px 15px;
-  border: none;
   border-radius: 3px;
-  background-color: #333;
+  background-color: #27ae60;
   color: #fff;
   cursor: pointer;
+  border: 10px 10px 10px 10px #27ae60;
 }
 
 
 .container {
-  max-width: 1200px; /* Ancho máximo del contenido */
+  max-width: 1080px; /* Ancho máximo del contenido */
   margin: 0 auto; /* Centrar el contenido */
-  padding: 20px;
-}
-
-/* Estilos para el encabezado */
-.header {
-  background-color: #ff4081; /* Color de fondo del encabezado */
-  color: red; /* Color del texto del encabezado */
   padding: 20px;
   text-align: center;
 }
 
-.header h1 {
-  margin: 0;
+.row1{
+  align-items: center;
+  text-align: center;
 }
 
 /* Estilos para la sección de Misión y Visión */
 .mision-vision {
-  margin-top: 20px;
+  margin-top: 200px;
+  padding-left: 200px;
+  padding-right: 200px;
+  
 }
 
 .mision-vision h1 {
-  background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
-  color: red; /* Color del texto de los títulos */
+  /*background-color: rgba(255, 255, 255, 0.44); /* Fondo transparente */
+  color: #e2e2e2; /* Color del texto de los títulos */
   padding: 10px; /* Padding reducido */
   border-radius: 10px; /* Redondeado reducido */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-  border: 2px solid yellowgreen; /* Color del borde de los títulos */
+  /*border: 2px solid #e2c4a4; /* Color del borde de los títulos */
   text-align: center;
+  font-size: 53px;
 }
 
 .mision-vision h2 {
-  /*background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
-  color: rgb(243, 239, 239); /* Color del texto de los títulos */
-  /*padding: 10px; /* Padding reducido */
-  /*border-radius: 10px; /* Redondeado reducido */
-  /*box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-  border: 2px solid yellowgreen; /* Color del borde de los títulos */
-  text-align: center;
+  background-color: rgba(255, 255, 255, 0.674); /* Fondo transparente */
+  color: #1d221f; /* Color del texto de los títulos */
+  padding-right:  20px; /* Padding reducido */
+  padding-left:  20px;
+  /*padding-top: 3px; */
+  /*padding-bottom: 3px; */
+  border-radius: 10px; /* Redondeado reducido */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(245, 245, 245, 0.523); /* Color del borde de los títulos */
+  text-align: left;
+  font-size: 20px;
 }
 
-.mision-vision p {
-  margin-top: 0;
-}
 
 /* Estilos para la sección de Contacto */
-.contacto {
+.section_contacto {
   background-color: rgba(255, 255, 255, 0.5); /* Color de fondo de la sección de contacto */
   padding: 20px;
   border-radius: 15px;
-  margin-top: 20px;
+  margin-top: 100px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-  border: 2px solid #c7b800; /* Color del borde de la sección de contacto */
+  border: 2px solid #e2c4a4; /* Color del borde de la sección de contacto */
 }
 
-.contacto h1 {
+.section_contacto h1 {
   background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
-  color: red; /* Color del texto del título de contacto */
+  color: rgb(31, 30, 30); /* Color del texto del título de contacto */
   padding: 10px; /* Padding reducido */
   border-radius: 10px; /* Redondeado reducido */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-  border: 2px solid yellowgreen; /* Color del borde del título de contacto */
+  border: 2px solid #efd9c2; /* Color del borde del título de contacto */
   text-align: center;
 }
+
 
 .contacto ul {
   list-style-type: none;
@@ -128,16 +133,6 @@ body {
   margin-bottom: 10px;
 }
 
-  /*aqui ira el css para la imagen de fondo*/
-
-  body {
-    margin: 0;
-    padding: 0;
-    background-image: url('fondo3.png');
-    background-size: cover;
-    background-position: center;
-    font-family: Arial, sans-serif;
-}
 
 .content {
     text-align: center;
@@ -145,3 +140,22 @@ body {
     background-color: rgba(255, 255, 255, 0.7);
 }
 
+.section_div{
+  padding: 20px auto;
+  text-align: center;
+}
+
+.list-group{
+  margin-top: 10px;
+}
+
+.list-group li{
+  display: inline-block;
+  margin: auto 10px;
+}
+
+.row{
+  text-align: center;
+  max-width: 1080px;
+  padding-bottom: 80px;
+}

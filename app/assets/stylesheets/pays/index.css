@@ -1,0 +1,52 @@
+.body{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta la altura según sea necesario */
+    overflow: hidden;
+    margin-top: 90px;
+}
+
+.div_central{   
+    border: 1px solid rgb(115, 71, 35);
+    text-align: center;
+    margin-top: -320px; /* Ajusta este valor según tus necesidades */
+    margin-left: 80px;
+    margin-right: 80px;
+    padding: 150px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.div_central .pay_container{
+    border: 1px solid rgb(115, 71, 35);
+    flex: 1 1 auto; /* Crece y se encoge para ocupar el espacio restante */
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.eleccion{
+    border: 1px solid black;
+    flex: 0 0 auto; /* No crece ni se encoge */
+    background-color: lightgray;
+    padding: 10px;
+    text-align: center;
+}   
+
+.opcion{
+    border: 1px solid black;
+    background-image: url('visa_pay.png');
+}
+
+.opcion:last-child {
+    border-bottom: none;
+  }

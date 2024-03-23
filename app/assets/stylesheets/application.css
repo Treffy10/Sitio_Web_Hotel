@@ -1,3 +1,6 @@
+@import "bootstrap";
+
+
 body{
     text-align: center;
     font-family: 'Jost', sans-serif;
@@ -6,11 +9,20 @@ body{
 }
 
 .menu_main{
-    background: white;
-    border: 1px solid black;
+    background: #cac72861;
     padding: 5px;
+    width: 100%;
     text-align: center;
-    border-radius: 0px 0px 10px 10px; /* arriba izquierda, arriba derecha, abajo derecha, abajo izquierda */
+    /*border-radius: 10px 10px 10px 10px; /* arriba izquierda, arriba derecha, abajo derecha, abajo izquierda */
+}
+
+.list-group{
+    padding: 10px;
+}
+
+.menu_main li {
+    background: white;     
+    border: 1px solid #28be9b96;
 }
 
 .menu_main ul li{

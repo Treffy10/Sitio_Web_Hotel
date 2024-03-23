@@ -1,36 +1,44 @@
 <% content_for :title, "Habitaciones - Rubies" %>
 <%= stylesheet_link_tag "bedrooms/index.css" %>
 
-<div class='mainSpan'>
+
+<div class="container">
+    <section class='main-span'>
     <h1 class='titleMain'>
         <span>Elige tu Habitacion</span>
     </h1>
     <sub>Disfruta de una experiencia agradable y acogedora en el confort y la comodidad de nuestras habitaciones.</sub>
-</div>
+    </section>
 
-<div class='bedroomsList'>
-    <% @bedrooms.each do |bedroom| %>
-        <div class='bedroomContainer'>
-            <div class='xd'>
-            <div class='imageBedroom'>
-                <a class="enlace imagen">
-                    <img><%= image_tag bedroom.image, class: "image" %></img>
-                </a>
-            </div>
-            </div>
-            <div class='viewInfo'>
-                <div class='bedBedroom'>
-                    <span>Camas: <%= bedroom.beds %></span>
-                </div>
-                <div class='titleBedroom'>
-                    <%= link_to bedroom_path(bedroom.id), class: 'linkTitle' do %>
-                        <h2><%= bedroom.title %></h2>
+    <section class='container-category'>
+    <div class='bedrooms-list'>
+        <% @bedrooms.each do |bedroom| %>
+            <div class="bedroom">
+                <p class='imageBedroom'>
+                    <a class="enlace-imagen">
+                        <!--Esta es una etiqueta img-->
+                        <%= image_tag bedroom.image, class: "image" %>
+                    </a>
+                </p>      
+                <div class='viewInfo'>
+                    <div class='bedBedroom'>
+                        <span style="font-size: 14px">Camas: <%= bedroom.beds %></span>
+                    </div>
+                    <div class='titleBedroom'>
+                        <%= link_to bedroom_path(bedroom.id), class: 'linkTitle' do %>
+                            <h2><%= bedroom.title %></h2>
+                        <% end %>
+                    </div>
+                    <div class='bed_description'>
+                        <p style="font-size: 17px"><%= bedroom.description %></p>
+                    </div> <!--Estos links son etiquetas "a"-->
+                    <%= link_to bedroom_path(bedroom.id), class: 'link_buttom' do %>
+                        <input type="submit" value="Ver" style="color: white; background-color: #0ecca8; 
+                        border-radius: 10px; border: #0ecca8">
                     <% end %>
                 </div>
-                <div class='bed_description'>
-                    <p><%= bedroom.description %></p>
-                </div>
             </div>
-        </div>
-    <% end %>
-</div> 
+        <% end %>
+    </div>
+    </section> 
+</div>

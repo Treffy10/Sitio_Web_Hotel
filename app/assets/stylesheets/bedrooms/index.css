@@ -1,93 +1,127 @@
 
-.mainSpan{
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(245, 240, 234);
+}
+
+.main-span{
     margin-top: 100px;
     margin-bottom: 125px;
+    text-align: center;
 }
 
-.mainSpan sub{
-    color: #757677;
-    font-size: 15px;
-}
+    .main-span sub{
+        color: #757677;
+        font-size: 15px;
+    }
 
-.titleMain span{
-    font-size: 57px;
-}
-.bedroomsList {
-    margin: 100px auto;
+    .titleMain span{
+        font-size: 57px;
+    }
+
+.container-category {
+    margin: 100px 100px;
+    text-align: center;
+    overflow: hidden;
+    align-items: center;
+    display: block;
 }   
 
-.bedroomContainer{
-    display: inline-block;
-    border: 1px solid black; 
-    margin: 10px 10px;
-    border-radius: 10px;
-    width: 40%;
-    overflow: hidden; /* Oculta cualquier contenido que se desborde */ 
-}
-
-.imageBedroom {
-    transition: transform 0.3s ease-in-out; /* Transición suave */
-}
-
-.imageBedroom:hover {
-    transform: scale(1.02); /* Ajuste sutil en el zoom al hacer hover */
-}
-
-.xd{
+.bedrooms-list{
+    display: block;
+    text-align: center;
     overflow: hidden;
-    display: inline-block;
-    margin: 10px 10px; 
+    align-items: center;
 }
 
+.bedroom{
+    display: block;
+    overflow: hidden;
+    border: 1px solid black; 
+    margin: 10px 10px;  
+    border-radius: 10px;
+    background-color: white;
+}
 
-.image {
-    width: 100%;
-    height: auto;
+.bedroom .image{
+   /* width: 1080px;
+    height: 520px; */
+    overflow: hidden;
     border: 1px solid #ccc;
     border-radius: 5px;
     display: block;
     margin: 10px auto;
 }
 
-.imageBedroom:hover .image {
-    transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
-}
+    .imageBedroom {
+        transition: transform 0.4s ease-in-out; /* Transición suave */
+        overflow: hidden;
+        display: block;
+        padding: 20px;
+    }
 
-.image {
-    /* Estilos para la imagen del dormitorio */
-    width: 95%; /* Ancho del 100% del contenedor */
-    height: 400px; /* Altura automática para mantener la proporción */
-    border: 1px solid #ccc; /* Borde de la imagen */
-    border-radius: 5px; /* Borde redondeado */
-    margin: 10px 1px;
+    .imageBedroom:hover {
+        transform: scale(1.02); /* Ajuste sutil en el zoom al hacer hover */
+        display: block;
+        overflow: hidden;
+    }
+
+    .imageBedroom:hover .image {
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+.enlace-imagen{
+    text-align: center;
+    overflow: hidden;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.viewInfo {
-    text-align: left;
-    margin-left: 30px;
+    .image {
+        /* Estilos para la imagen del dormitorio */
+        width: 95%; /* Ancho del 100% del contenedor */
+        height: 400px; /* Altura automática para mantener la proporción */
+        border: 1px solid #ccc; /* Borde de la imagen */
+        border-radius: 5px; /* Borde redondeado */
+        margin: 10px 1px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .viewInfo {
+        text-align: left;
+        padding: 30px;
+        overflow: hidden;   
+    }
+
+
+    
+    .bed_description p {
+        text-align: left; /* Centrar el texto */
+        font-size: 17px; /* Tamaño de fuente */
+        line-height: 1.5; /* Altura de línea para un espaciado adecuado entre líneas */
+        white-space: pre-line; /* Previene que el texto se colapse en una sola línea */
+        margin-bottom: 13px; /* Espacio entre párrafos */
+        color: #757677;
+    }
+
+    .bedBedroom span{
+        font-size: 13px;
+        color: #757677;
+    }
+
+.link_buttom input{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 
-  
-.bed_description p {
-    text-align: left; /* Centrar el texto */
-    font-size: 15px; /* Tamaño de fuente */
-    line-height: 1.5; /* Altura de línea para un espaciado adecuado entre líneas */
-    white-space: pre-line; /* Previene que el texto se colapse en una sola línea */
-    margin-bottom: 13px; /* Espacio entre párrafos */
-    color: #757677;
-}
 
-.bedBedroom span{
-    font-size: 13px;
-    color: #757677;
-}
-
-.linkTitle {
-    text-decoration: none;
-    color: black;
-}
+    .linkTitle {
+        text-decoration: none;
+        color: black;
+    }
