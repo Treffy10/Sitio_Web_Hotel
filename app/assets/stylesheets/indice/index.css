@@ -2,12 +2,18 @@
 /* Estilos generales */
 body {
   font-family: Arial, sans-serif;
-  color: black; /* Color del texto principal */
   margin: 0;
   padding: 0;
   background-image: url('mil_horas.jpg');  /*aqui ira el css para la imagen de fondo*/
   background-size: cover;
   background-position: center;
+  align-items: center;
+}
+
+.vista{
+  display: block;
+  text-align: center;
+  align-items: center;
 }
 
 .encabezadoReserva {  
@@ -23,8 +29,8 @@ body {
   font-size: 1.2rem;
 }
 
-.encabezadoReserva h2 span{
-  color:#a91d1d; 
+.encabezadoReserva h2 span{ 
+  color: #cac7289c; 
   font-weight: bold;
 }
 
@@ -47,15 +53,18 @@ body {
   border-radius: 3px;
 }
 
+.boton_buscar input{
+  border: 1px solid wheat;
+}
+
 .boton_buscar input[type="submit"] {
   padding: 5px 15px;
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: #27ae60;
   color: #fff;
   cursor: pointer;
-  border: 10px 10px 10px 10px #27ae60;
+  
 }
-
 
 .container {
   max-width: 1080px; /* Ancho máximo del contenido */
@@ -67,95 +76,78 @@ body {
 .row1{
   align-items: center;
   text-align: center;
+  display: block;
+  padding: 10px;
+}
+
+.row{
+  text-align: center;
+  padding-bottom: 80px;
 }
 
 /* Estilos para la sección de Misión y Visión */
 .mision-vision {
-  margin-top: 200px;
-  padding-left: 200px;
-  padding-right: 200px;
-  
+  margin-top: 130px;
+  margin-left: 130px;
+  margin-right: 130px;
+  margin-bottom: 130px;
+  display: block;
+  align-items: center;  
 }
 
 .mision-vision h1 {
-  /*background-color: rgba(255, 255, 255, 0.44); /* Fondo transparente */
+  background-color: #cac72861; /* Fondo transparente */
   color: #e2e2e2; /* Color del texto de los títulos */
   padding: 10px; /* Padding reducido */
   border-radius: 10px; /* Redondeado reducido */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
   /*border: 2px solid #e2c4a4; /* Color del borde de los títulos */
   text-align: center;
-  font-size: 53px;
-}
+  font-size: 53px;  
+} 
 
 .mision-vision h2 {
-  background-color: rgba(255, 255, 255, 0.674); /* Fondo transparente */
-  color: #1d221f; /* Color del texto de los títulos */
-  padding-right:  20px; /* Padding reducido */
-  padding-left:  20px;
-  /*padding-top: 3px; */
-  /*padding-bottom: 3px; */
+  background-color: rgba(57, 110, 174, 0.533); /* Fondo transparente */
+  color: rgb(171, 230, 227); /* Color del texto de los títulos */
+  padding: 10px;
   border-radius: 10px; /* Redondeado reducido */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-  border: 2px solid rgba(245, 245, 245, 0.523); /* Color del borde de los títulos */
   text-align: left;
   font-size: 20px;
 }
 
+.section_div{
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
 
 /* Estilos para la sección de Contacto */
 .section_contacto {
-  background-color: rgba(255, 255, 255, 0.5); /* Color de fondo de la sección de contacto */
-  padding: 20px;
-  border-radius: 15px;
-  margin-top: 100px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-  border: 2px solid #e2c4a4; /* Color del borde de la sección de contacto */
 }
+
 
 .section_contacto h1 {
-  background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
-  color: rgb(31, 30, 30); /* Color del texto del título de contacto */
-  padding: 10px; /* Padding reducido */
-  border-radius: 10px; /* Redondeado reducido */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-  border: 2px solid #efd9c2; /* Color del borde del título de contacto */
+  color: #e2e2e2; /* Color del texto del título de contacto */
+  padding: 10px; /* Padding reducido */
   text-align: center;
+  background-color: #cac72861;
 }
 
 
-.contacto ul {
-  list-style-type: none;
-  padding-left: 0;
+.list-group_c{
+  background-color: rgba(57, 110, 174, 0.533);
+  margin-top: -8px;
+  padding-bottom: 8px;
 }
 
-.contacto li {
-  margin-bottom: 10px;
+.list-group_c ul{
+  padding: 10px;
 }
 
-
-.content {
-    text-align: center;
-    padding: 50px;
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
-.section_div{
-  padding: 20px auto;
-  text-align: center;
-}
-
-.list-group{
-  margin-top: 10px;
-}
-
-.list-group li{
+.list-group_c li{
   display: inline-block;
   margin: auto 10px;
-}
-
-.row{
-  text-align: center;
-  max-width: 1080px;
-  padding-bottom: 80px;
+  color: rgb(171, 230, 227);
 }

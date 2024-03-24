@@ -1,52 +1,103 @@
-.body{
+
+
+body{
     margin: 0;
     padding: 0;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
 }
 
 .container{
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh; /* Ajusta la altura según sea necesario */
-    overflow: hidden;
-    margin-top: 90px;
+    margin-top: 70px;
 }
 
 .div_central{   
-    border: 1px solid rgb(115, 71, 35);
     text-align: center;
-    margin-top: -320px; /* Ajusta este valor según tus necesidades */
-    margin-left: 80px;
-    margin-right: 80px;
-    padding: 150px;
-    display: flex;
+    align-items: center;
+    margin-top: -80px; /* Ajusta este valor según tus necesidades */
+    margin-left: 180px;
+    margin-right: 180px;
+    padding: 90px;
+    display: block;
     flex-direction: column;
     height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 
-.div_central .pay_container{
-    border: 1px solid rgb(115, 71, 35);
-    flex: 1 1 auto; /* Crece y se encoge para ocupar el espacio restante */
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-}
-
-.eleccion{
+.eleccion_title{
     border: 1px solid black;
     flex: 0 0 auto; /* No crece ni se encoge */
     background-color: lightgray;
     padding: 10px;
     text-align: center;
-}   
-
-.opcion{
-    border: 1px solid black;
-    background-image: url('visa_pay.png');
 }
 
-.opcion:last-child {
+.div_central .pay_container{
+    border: 1px solid rgb(115, 71, 35);
+    flex: 1 1 auto; /* Crece y se encoge para ocupar el espacio restante */
+    display: block;
+    flex-direction: column;
+    background-color: white;
+}
+
+.casilla{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid black;
+}
+
+.div_img{
+    display: block;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
+    margin-right: 100px;
+}
+
+.div_img span{
+    align-items: center;
+}
+
+.div_img .image{
+    width: 120px;
+    height: 60px;
+}
+
+.nombre_pay{
+    display: block;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    width: 33%;
+    margin-right: 70px;
+}
+
+.nombre_pay span{
+    font-size: 20px;
+}
+
+.nombre_pay:last-child {
     border-bottom: none;
   }
+
+.eleccion{
+    padding: 10px;
+    background-color: #27ae60;
+    margin-left: 40px;
+    border-radius: 5px;
+}
+
+.eleccion .boton{
+    color: white;
+    text-decoration: none;
+    border: none;
+}   

@@ -5,34 +5,38 @@
     <div class="row">
         <div class="columna">
             <div class='reservation_info'>
-        <div class="t_habitacion">
+        <div>
+        <div class="t_cuadro">
             <h2 style="font-size: 18px">1. Datos de su reserva</h2>
         </div>
-        <div class="t_hotel">Rubies Hotel</div>
+        </div>
+        <div class="t_hotel" style="font-size: 20px; font-weight: bold">Rubies Hotel</div>
         <div class="ubigeo">Av.Amazonas #523, Tingo Maria, Peru</div>
-        <div class='habitacion' style="background-color: #f0f0f0">
-            <div class='image_bedroom'>
-                <%= image_tag @category_bedroom.image, class: "image", style: "overflow: hidden" %>
-            </div>
-            <div class='caracteristicas'>
-                <div class='_caracteristicas'>
-                    <div class="t_category">
-                        <h1 class="s"><%= @category_bedroom.title %></h1>
-                    </div>
-                    <div class="c">
-                        <span class="s">Entrada: <%= @fecha_entrada %> </span>
-                    </div>
-                    <div class="c">
-                        <span class="s">Salida: <%= @fecha_salida %> [<%= @nights %> noche(s)]</span>
-                    </div>
-                    <div class="c">
-                        <span class="s">Oferta: Tarifa Estandar</span>
-                    </div>
-                    <div class="c">
-                        <span class="s">Ocupacion: <%= @ocupacion %> </span>
-                    </div>                
+        <div>
+            <div class='habitacion' style="background-color: #f0f0f0">
+                <div class='image_bedroom'>
+                    <%= image_tag @category_bedroom.image, class: "image", style: "overflow: hidden" %>
                 </div>
-            </div>    
+                <div class='caracteristicas'>
+                    <div class='_caracteristicas'>
+                        <div class="t_category">
+                            <h1 class="s"><%= @category_bedroom.title %></h1>
+                        </div>
+                        <div class="c">
+                            <span class="s">Entrada: <%= @fecha_entrada %> </span>
+                        </div>
+                        <div class="c">
+                            <span class="s">Salida: <%= @fecha_salida %> [<%= @nights %> noche(s)]</span>
+                        </div>
+                        <div class="c">
+                            <span class="s">Oferta: Tarifa Estandar</span>
+                        </div>
+                        <div class="c">
+                            <span class="s">Ocupacion: <%= @ocupacion %> </span>
+                        </div>                
+                    </div>
+                </div>    
+            </div>
         </div>
         <div class="prices">
             <div class='total_price'>
@@ -53,9 +57,9 @@
         </div>
         </div>
         <div class='formulario_huesped'>
-        <div class='condiciones reservas'>
-        </div>
+        <div class="t_cuadro">
         <h2 class='datos_title' style="white-space: nowrap">2. Datos del cliente</h2>
+        </div>
         <div class="subtitulo_datos" style="white-space: nowrap">Introduce los siguientes datos para continuar con la reserva</div>
         <div class="model">
             <%= form_with model: @reservation do |reservation_form| %>

@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
       @non_overlapping_reservations = find_non_overlapping_reservations(@fecha_entrada, @fecha_salida)
 
       # Obtener todas las categorías con al  menos una habitación asignada y disponibilidad establecida en 1
-      category_bedrooms = CategoryBedroom.joins(:bedrooms).where(bedrooms: { availability: 1 }).distinct
+      category_bedrooms = CategoryBedroom.joins(:bedrooms).where(bedrooms: { availability: 1 || 0 }).distinct
 
       if @overlapping_reservations.any?
         if @non_overlapping_reservations.any? || category_bedrooms.any?
@@ -115,10 +115,10 @@ class ReservationsController < ApplicationController
   end
 
   # Método para filtrar habitaciones disponibles
-  def filter_available_bedrooms(reservations, category_bedroom)
-    reserved_bedroom_ids = reservations.pluck(:bedroom_id).uniq
-    category_bedroom.bedrooms.where.not(category_bedroom_id: reserved_bedroom_ids)
-  end
+  # def filter_available_bedrooms(reservations, category_bedroom)
+  #  reserved_bedroom_ids = reservations.pluck(:bedroom_id).uniq
+  #  category_bedroom.bedrooms.where.not(category_bedroom_id: reserved_bedroom_ids)
+  #end
 
   def create
     @category_bedroom = CategoryBedroom.find_by(category_bedroom_id: params[:category_bedroom_id])
@@ -130,6 +130,7 @@ class ReservationsController < ApplicationController
 
     @reservation = Reservation.new(reservation_params)
     @user = User.find(1) # Se usará el user "fantasma" para estas reservas webs
+    @pay = Pay.find(1)  # Se le asigna el pago por visa como determinado
     @reservation.state = 0 # Establecer el estado como 0 (por pagar)
     @reservation.arrivalDate = params[:fecha_entrada]
     @reservation.departureDate = params[:fecha_salida]
@@ -149,16 +150,9 @@ class ReservationsController < ApplicationController
     # Si la habitación está disponible y pertenece a la categoría correcta, asignarla a la reserva
     @reservation.user = @user
     @reservation.bedroom = bedroom
-    @reservation.build_pay
+    @reservation.pay = @pay # Aqui se le asigna el metodo de pago predeterminado
 
     if @reservation.save
-      # Obtener la fecha actual
-      today = Date.today
-
-      # Si la fecha de entrada es hoy, actualizar la disponibilidad de la habitación
-      if @reservation.arrivalDate == today
-        bedroom.update(availability: 0)
-      end
       redirect_to pagos_path(reservation_id: @reservation.reservation_id), notice: 'La reserva se creó exitosamente.'
     else
       puts @reservation.errors.full_messages

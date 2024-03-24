@@ -3,18 +3,33 @@
 
 <div class="container">
     <div class='div_central'>
-        <div class="eleccion">
+        <div class="eleccion_title">
             <span>Seleccione su metodo de pago</span>
         </div>
         <div class='pay_container'>
             <% @payment_method.each do |pay_method| %>
-                <div class='opcion'>
-                    <nav>
-                        <ul>
-                            <li><span><%= pay_method.payment_method %></span><li>
-                        <ul>               
+            <div class="casilla">
+                <div class='nombre_pay'>
+                    <nav style="aling-items: center">
+                        <ul style="padding: 10px">
+                            <li><span><%= pay_method.payment_method %></span></li>
+                        </ul>               
                     </nav>
                 </div>
+                <div class="div_img">
+                    <span>
+                        <%= image_tag "#{pay_method.image}", class: "image" %>
+                    </span>
+                </div>
+                <div class="eleccion">
+                    <!-- Formulario para enviar los datos con un botón de envío -->
+                    <%= form_tag(change_pay_path, method: "patch") do %>
+                        <%= hidden_field_tag :pay_id, pay_method.pay_id %>
+                        <%= hidden_field_tag :reservation_id, @reservation_id %>
+                        <%= submit_tag "Finalizar Reserva", class: "boton", style: "background-color: #27ae60"%>
+                    <% end %>
+                </div>
+            </div>
             <% end %>
         </div>
     </div>

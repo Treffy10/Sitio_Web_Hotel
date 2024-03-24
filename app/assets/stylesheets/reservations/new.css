@@ -15,6 +15,7 @@ body{
 
 .container{
     margin-top: 20px;
+    margin-bottom: 30px;
     display: flex; 
     justify-content: center; /* Centra el contenido horizontalmente */
      /* Centra el contenido verticalmente */
@@ -23,11 +24,15 @@ body{
 
 .image_bedroom{
     text-align: center;
-    margin-right: 20px;     
+    align-items: center;
+    margin-right: 20px; 
+    overflow: hidden;
+    display: block; 
 }
 
 .image_bedroom .image{
-    width: 280px;
+    width: 270px;
+    height: 180px;
     overflow: hidden;
 }
 
@@ -48,7 +53,7 @@ body{
     padding: 5px;
 }
 
-.t_habitacion{
+.t_cuadro{
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 9px;
@@ -74,7 +79,7 @@ body{
 }
 
 .habitacion{
-    display: flex;    
+    display: flex; 
 }
 
 .formulario_huesped{

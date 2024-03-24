@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "/reservas/new", to: "reservations#new", as: "new_reservation"  # Ruta para mostrar el formulario de creación de reserva
   post "/reservas", to: "reservations#create", as: "create_reservation"  # Ruta para crear una nueva reserva
   get "/pagos", to: "pays#index"
+  patch "/pagos", to: "pays#change", as: "change_pay" # Ruta para cambiar el metodo de pago predeterminado
+
   resources :reservations, only: [:new, :create, :index] # Limita las rutas a new, create e index
   resources :residents # Mueve esta línea fuera del bloque de category_bedrooms
   resources :category_bedrooms do

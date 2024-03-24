@@ -8,7 +8,7 @@ body{
 
 
 .wrapper_body{
-    display: block;
+    display: grid;
     text-align: center;
     align-items: center;
     overflow: hidden;

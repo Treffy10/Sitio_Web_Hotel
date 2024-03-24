@@ -1,9 +1,13 @@
 @import "bootstrap";
 
 
+head{
+    font-family: 'Roboto', sans-serif;
+}
+
 body{
     text-align: center;
-    font-family: 'Jost', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
 }
