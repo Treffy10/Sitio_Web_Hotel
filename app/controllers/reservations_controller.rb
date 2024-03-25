@@ -13,8 +13,12 @@ class ReservationsController < ApplicationController
       @overlapping_reservations = find_overlapping_reservations(@fecha_entrada, @fecha_salida)
       @non_overlapping_reservations = find_non_overlapping_reservations(@fecha_entrada, @fecha_salida)
 
-      # Obtener todas las categorías con al  menos una habitación asignada y disponibilidad establecida en 1
-      category_bedrooms = CategoryBedroom.joins(:bedrooms).where(bedrooms: { availability: 1 || 0 }).distinct
+
+      # Obtener todas las categorías con al menos una habitación asignada y donde esas habitaciones no estén relacionadas con ninguna reserva
+      category_bedrooms = CategoryBedroom.joins(:bedrooms)
+      .where.not(bedrooms: { bedroom_id: Reservation.select(:bedroom_id) })
+      .where(bedrooms: { availability: 1 })
+      .distinct
 
       if @overlapping_reservations.any?
         if @non_overlapping_reservations.any? || category_bedrooms.any?
@@ -106,12 +110,12 @@ class ReservationsController < ApplicationController
 
   # Método para encontrar reservas que se superponen
   def find_overlapping_reservations(start_date, end_date)
-    Reservation.where("arrivalDate < ? AND departureDate > ?", end_date, start_date)
+    Reservation.where("arrivalDate <= ? AND departureDate >= ?", end_date, start_date)
   end
 
   # Método para encontrar reservas que no se superponen
   def find_non_overlapping_reservations(start_date, end_date)
-  Reservation.where.not("arrivalDate < ? AND departureDate > ?", end_date, start_date)
+  Reservation.where.not("arrivalDate <= ? AND departureDate >= ?", end_date, start_date)
   end
 
   # Método para filtrar habitaciones disponibles

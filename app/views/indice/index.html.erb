@@ -12,18 +12,17 @@
     </h2>
     <%= form_tag("/reservas", method: "get") do %>
         <div class="fecha">
-            <label for="fecha_entrada" style="color: white">Fecha de entrada:</label>
-            <input type="date" id="fecha_entrada" name="fecha_entrada" min="<%= Date.today.to_s %>" required>
+            <label for="fecha_entrada" style="color: #ffeadb">Fecha de entrada:</label>
+            <input type="date" id="fecha_entrada" style="color: #383A4E" name="fecha_entrada" min="<%= Date.today.to_s %>" required data-tooltip="LOL XD">
         </div>
         <div class="fecha">
-            <label for="fecha_salida" style="color: white">Fecha de salida:</label>
-            <input type="date" id="fecha_salida" name="fecha_salida" required>
+            <label for="fecha_salida" style="color: #ffeadb">Fecha de salida:</label>
+            <input type="date" id="fecha_salida" name="fecha_salida" required data-tooltip="LOL XD">
         </div>
         <div class="boton_buscar">
             <input type="submit" value="Buscar">
         </div>
     <% end %>
-</div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -44,6 +43,10 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
+
+</div>
+
+
 
 <div class="vista">
   <div class="container">
@@ -82,9 +85,9 @@ document.addEventListener("DOMContentLoaded", function() {
       </div>
       <div class='list-group_c'>  
         <ul>
-          <li>Teléfono: +1234567890</li>
-          <li>Correo electrónico: info@ejemplo.com</li>
-          <li>Dirección: Calle Principal #123, Ciudad, País</li>
+          <li>Teléfono: +51996378506</li>
+          <li>Correo electrónico: rubies123@gmail.com</li>
+          <li>Dirección: Castillo #123, Tingo Maria, Peru</li>
         </ul> 
       </div>
     </section>

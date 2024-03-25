@@ -1,114 +1,72 @@
-body{
-    margin: 0;
-    padding: 0;
+/* Estilos específicos para la página de habitaciones */
+#container {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 50px auto;
+    max-width: 800px; /* Ancho máximo del contenido */
+  }
+  
+  .div_title {
     text-align: center;
-    align-items: center;
-    display: block;
-}
-
-.container{
-    align-items: center;
-    justify-content: center;
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-bottom: 50px;
-    margin-top: 50px;
-    overflow: hidden;
-    display: block;
-}
-
-.div_title{
-    margin-bottom: 150px;
-    margin-top: 100px;
-}
-
-
-h1{
-    font-size: 60px;
-}
-
-.div_principal {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.separador{
+  }
+  
+  .title {
+    color: #333; /* Color del título */
+    font-size: 36px;
+  }
+  
+  .div_principal {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    margin-right: 100px;
-    margin-left: 120px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
+    justify-content: space-between;
+    margin-top: 30px;
+  }
   
-
-
-.box_2{
-    width: 35%;
-    text-align: center;
-    align-items: center;
-    align-self: center; /* Centra verticalmente este div */ 
-    margin: auto 0;
-    justify-content: center;
-    border: 1px solid black;
-    display: block;
-}
+  .box_1,
+  .box_2 {
+    flex: 1;
+  }
   
-.box_1 {
-    width: 65%; /* Ajusta el ancho según tus necesidades */
+  .div_image {
     text-align: center;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
+  }
+  
+  .image {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
+  .div_description {
+    padding: 20px 0;
+  }
+  
+  .title_span {
+    color: #ffa876; /* Color del título alternativo */
+    font-size: 24px;
+  }
+  
+  .description {
+    color: #555; /* Color del texto de la descripción */
+  }
+  
+  .beds {
     display: block;
-    margin-right: 20px;
-}
-
-.box_auxiliar_1{
     text-align: center;
-    align-items: center;
-    display: block;
+    background-color: #ffa876; /* Color de fondo del bloque de camas */
+    color: #fff; /* Color del texto de las camas */
     padding: 10px;
-}
-
-.div_image{
-    align-items: center;
-    width: 100%;
-}
-
-.enlace_image{
-   overflow: hidden;
-   align-items: center;
-   display: block;
-   border-radius: 5px;
-}
-
-.enlace_image .image{
-    width: 100%
-}
-
-.div_description{
-    align-items: center;
-    text-align: left;
-    padding-top: 100px;
-}
-
-.box_auxiliar_2{
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .footer {
+    background-color: #333; /* Color de fondo del pie de página */
+    color: #fff; /* Color del texto del pie de página */
+    padding: 20px;
     text-align: center;
-    align-items: center;
-    text-align: center;
-    display: block;
-    padding: 10px;
-    margin: auto 0;
-}
-
-.div_beds{
-    border-radius: 20px; /* Ajusta el valor según el radio de redondez deseado */
-    border: 1px solid #ccc; /* Línea de borde */
-    padding: 15px; /* Espaciado interno */
-} 
+  }
+  
+  .footer .seccion {
+    margin-top: 20px;
+  }
+  

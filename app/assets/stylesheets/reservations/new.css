@@ -1,51 +1,51 @@
+/* Estilos para la página de reserva */
 
-body{
+body {
     background-color: #f0f0f0;
     padding: 0;
     margin: 0;
 }
 
-.row{
-    display: flex;
-}
-
-.columna{
-    display: flex;
-}
-
-.container{
+.container {
     margin-top: 20px;
     margin-bottom: 30px;
-    display: flex; 
-    justify-content: center; /* Centra el contenido horizontalmente */
-     /* Centra el contenido verticalmente */
+    display: flex;
+    justify-content: center;
     align-items: flex-start;
 }
 
-.image_bedroom{
-    text-align: center;
-    align-items: center;
-    margin-right: 20px; 
-    overflow: hidden;
-    display: block; 
+.row {
+    display: flex;
 }
 
-.image_bedroom .image{
+.columna {
+    display: flex;
+}
+
+.image_bedroom {
+    text-align: center;
+    align-items: center;
+    margin-right: 20px;
+    overflow: hidden;
+    display: block;
+}
+
+.image_bedroom .image {
     width: 270px;
     height: 180px;
     overflow: hidden;
 }
 
-.caracteristicas{
+.caracteristicas {
     padding-left: 10px;
     padding-right: 50px;
 }
 
-._caracteristicas h1{
+._caracteristicas h1 {
     font-size: 15px;
 }
 
-.c .s{
+.c .s {
     color: black;
 }
 
@@ -53,37 +53,32 @@ body{
     padding: 5px;
 }
 
-.t_cuadro{
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 9px;
-    padding-bottom: 9px;
+.t_cuadro {
+    padding: 9px;
     text-align: left;
     color: #27ae60;
+    background-color: #f0f0f0;
 }
 
-.t_hotel{
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: left;
-}   
-
-.t_category .s{
-   text-align: left;
-}
-
-.ubigeo{
-    padding-left: 10px;
-    padding-right: 10px;
+.t_hotel {
+    padding: 5px;
     text-align: left;
 }
 
-.habitacion{
-    display: flex; 
+.t_category .s {
+    text-align: left;
 }
 
-.formulario_huesped{
-    display: inline-block;
+.ubigeo {
+    padding: 5px;
+    text-align: left;
+}
+
+.habitacion {
+    display: flex;
+}
+
+.formulario_huesped {
     border: 1px solid white;
     background-color: white;
     text-align: center;
@@ -92,90 +87,82 @@ body{
     margin-left: 10px;
 }
 
-.reservation_info{
+.reservation_info {
     border: 1px solid white;
     background-color: white;
-    display: inline-block;
     width: 50%;
     overflow: hidden;
     margin-right: 10px;
 }
 
-
-.datos_title{
+.datos_title {
     text-align: left;
     font-size: 18px;
     color: #27ae60;
+    background-color: #f0f0f0;
+    padding: 9px;
 }
 
-.subtitulo_datos{
+.subtitulo_datos {
     text-align: left;
     padding: 5px;
 }
 
-.model{
+.model {
     text-align: center;
 }
 
-.model .campo{
+.model .campo {
     padding-right: 30px;
     padding-left: 30px;
     padding-top: 5px;
-    padding-bottom: 5px;   
+    padding-bottom: 5px;
 }
 
-.campo .imput{
-    width: 100%;
+.campo .imput {
+    width: calc(100% - 60px); /* Ajuste para el ancho del campo de entrada */
 }
 
-.prices{
+.prices {
     overflow: hidden;
 }
 
-.total_price{
+.total_price,
+.t_price_online {
     display: flex;
     padding: 10px;
     text-align: center;
     overflow: hidden;
+    background-color: #f0f0f0;
 }
 
-.t_price_online{
-    display: flex;
-    padding: 10px;
-    text-align: center;
+.p_online p,
+.p_amount_online p {
+    color: white;
+    white-space: nowrap;
     background-color: #27ae60;
-    overflow: hidden;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
-.p_online p{
-    color: white;
-    white-space: nowrap;
+.p,
+.p_online,
+.p_amount,
+.p_amount_online {
+    padding: 0 20px;
 }
 
-.p, .p_online{
-    padding-right: 170px;
-}
-
-.p_amount, .p_amount_online{
-    padding-left: 170px;
-}
-
-.p_amount_online p{
-    color: white;
-    white-space: nowrap;
-}
-
-.horarios{
+.horarios {
     padding: 10px;
-    text-align: left;   
+    text-align: left;
 }
 
-.acciones .boton-reservar{
-    border: #27ae60;
-    padding-right: 50px; 
-    padding-left: 50px; 
-    padding-top: 10px; 
-    padding-bottom: 10px; 
+.acciones .boton-reservar {
+    background-color: #27ae60;
     color: white;
-    border-radius: 10px 10px 10px 10px;    
+    border: none;
+    padding: 10px 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
 }

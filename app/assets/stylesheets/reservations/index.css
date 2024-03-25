@@ -24,7 +24,7 @@ body{
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: rgba(113, 135, 164, 0.749);
+  background-color: #ffa876;
     /*border-radius: 10px; */
 }
 
@@ -35,9 +35,14 @@ body{
 }
 
 .encabezadoReserva h2 span{
-    color:#a91d1d; 
+    color:#ffeadb; 
     font-weight: bold;
   }
+
+.encabezadoReserva .boton_buscar{
+    border-radius: 10px;
+    border: none;
+}
   
 .fecha,
 .boton_buscar {
@@ -173,7 +178,7 @@ body{
 }
 
 td{
-    border: 1px solid black
+    border: 1px solid rgb(111, 105, 105);
 }
 
 .eleccion_cantidad td{
@@ -190,15 +195,15 @@ td{
 }
 
 .reservar{
-    border-radius: 3px;    
+    border-radius: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 7px;
+    padding-right: 7px;    
 }
 
 .boton {
     text-decoration: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 20px;
-    padding-top: 20px;
 }
 
 .personas{

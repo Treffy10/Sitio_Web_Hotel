@@ -1,4 +1,3 @@
-@import "bootstrap";
 
 
 head{
@@ -10,23 +9,26 @@ body{
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    align-items: center;
 }
 
 .menu_main{
-    background: #cac72861;
+    background: #679b9b;
     padding: 5px;
     width: 100%;
     text-align: center;
-    /*border-radius: 10px 10px 10px 10px; /* arriba izquierda, arriba derecha, abajo derecha, abajo izquierda */
 }
 
 .list-group{
     padding: 10px;
 }
 
+.menu_main .list-group-item{
+    border-radius: 10px;
+}
+
 .menu_main li {
     background: white;     
-    border: 1px solid #28be9b96;
 }
 
 .menu_main ul li{
@@ -36,7 +38,6 @@ body{
 
 .menu_main ul li a{
     text-decoration: none; /* Eliminar el subrayado */
-    color: #383A4E; /* Cambiar el color del texto del enlace */
     white-space: nowrap;
     padding: 0 20px;
     line-height: 24px;
