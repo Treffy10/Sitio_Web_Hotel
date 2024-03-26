@@ -24,11 +24,11 @@
 
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-  const fechaEntradaInput = document.getElementById('fecha_entrada');
-  const fechaSalidaInput = document.getElementById('fecha_salida');
+    const fechaEntradaInput = document.getElementById('fecha_entrada');
+    const fechaSalidaInput = document.getElementById('fecha_salida');
 
-  // Agrega evento de entrada al campo de entrada
-  fechaEntradaInput.addEventListener('input', function() {
+    // Agrega evento de entrada al campo de entrada
+    fechaEntradaInput.addEventListener('input', function() {
     // Calcula la fecha mínima como la fecha de entrada más un día
     const fechaMinima = new Date(fechaEntradaInput.value);
     fechaMinima.setDate(fechaMinima.getDate() + 1);

@@ -59,7 +59,8 @@ body {
 .boton_buscar input[type="submit"] {
   padding: 5px 15px;
   border-radius: 5px;
-  background-color: #27ae60;
+  background-color: rgb(14, 204, 168);
+  border: #0ecca8;
   color: #fff;
   cursor: pointer;
   

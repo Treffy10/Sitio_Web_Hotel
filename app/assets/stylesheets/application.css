@@ -28,7 +28,8 @@ body{
 }
 
 .menu_main li {
-    background: white;     
+    background: #0ecca8;
+    border: #0ecca8;     
 }
 
 .menu_main ul li{
@@ -41,7 +42,7 @@ body{
     white-space: nowrap;
     padding: 0 20px;
     line-height: 24px;
-    color: #383A4E;
+    color: whitesmoke;
     font-size: 15px;
     -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;

@@ -118,12 +118,6 @@ class ReservationsController < ApplicationController
   Reservation.where.not("arrivalDate <= ? AND departureDate >= ?", end_date, start_date)
   end
 
-  # Método para filtrar habitaciones disponibles
-  # def filter_available_bedrooms(reservations, category_bedroom)
-  #  reserved_bedroom_ids = reservations.pluck(:bedroom_id).uniq
-  #  category_bedroom.bedrooms.where.not(category_bedroom_id: reserved_bedroom_ids)
-  #end
-
   def create
     @category_bedroom = CategoryBedroom.find_by(category_bedroom_id: params[:category_bedroom_id])
 
